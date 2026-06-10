@@ -1996,3 +1996,45 @@ body {
   text-decoration: underline;
   font-weight: 400;
 }
+
+/* Paper-style multi-panel figure */
+.paper-figure-block {
+  margin: 1.5rem auto 2.5rem;
+}
+
+.paper-subfigure-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.6rem;
+  align-items: start;
+}
+
+.paper-subfigure img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.paper-figure-caption {
+  color: #000;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 1.35rem;
+  line-height: 1.18;
+  margin-top: 1.25rem;
+  text-align: left;
+}
+
+.paper-figure-caption strong {
+  font-weight: 800;
+}
+
+@media screen and (max-width: 768px) {
+  .paper-subfigure-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .paper-figure-caption {
+    font-size: 1.05rem;
+  }
+}
