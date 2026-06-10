@@ -112,7 +112,27 @@
 
 <section class="section algorithm-section">
   <div class="container is-max-widescreen">
+    <h2 class="title is-3">NU-FFT for RPE-modulated attention</h2>
 
+    <div class="content has-text-justified algorithm-intro">
+      <p>
+        <strong>We introduce our RPE-attention mechanism, starting from the definition of masked attention.</strong>
+      </p>
+      <br>
+      <p>
+        Denote by \(\{\mathbf{x}_{i}\}_{i=1}^{L} \subseteq \mathbb{R}^{d}\) the embeddings of input tokens
+        to the attention mechanism and by \(\mathbf{X} \in \mathbb{R}^{L \times d}\) a matrix of rows
+        given by \(\{\mathbf{x}_{i}\}_{i=1}^{L}\). We define by
+        \(\{\mathbf{q}_{i}\}_{i=1}^{L}\), \(\{\mathbf{k}_{i}\}_{i=1}^{L} \subseteq \mathbb{R}^{d_{QK}}\),
+        and \(\{\mathbf{v}_{i}\}_{i=1}^{L} \subseteq \mathbb{R}^{d}\) the sets of queries, keys, and values,
+        respectively, obtained by applying three learnable linear transformations:
+        \(\mathbf{W}_{Q} \in \mathbb{R}^{d_{QK} \times d}\),
+        \(\mathbf{W}_{K} \in \mathbb{R}^{d_{QK} \times d}\), and
+        \(\mathbf{W}_{V} \in \mathbb{R}^{d \times d}\) to embeddings
+        \(\{\mathbf{x}_{i}\}_{i=1}^{L}\).
+      </p>
+    </div>
+    
     <div class="algorithm-box">
       <div class="algorithm-title">
         <strong>Algorithm 1:</strong>
