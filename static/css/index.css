@@ -1706,12 +1706,23 @@ body {
   text-transform: none !important;
 }
 
-.performance-table.relflex-table th:first-child {
+/* Only the real first column: Attention / method names */
+.performance-table.relflex-table thead tr:first-child th:first-child,
+.performance-table.relflex-table tbody th:first-child {
   text-align: left;
   min-width: 210px;
   padding-left: 12px;
   padding-right: 18px;
   border-right: 1.2px solid #555;
+}
+
+/* Prevent the second header row's mIoU from being treated as the first column */
+.performance-table.relflex-table thead tr:nth-child(2) th:first-child {
+  min-width: auto;
+  text-align: center;
+  padding-left: 12px;
+  padding-right: 12px;
+  border-right: none;
 }
 
 .performance-table.relflex-table thead {
