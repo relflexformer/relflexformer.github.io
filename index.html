@@ -754,7 +754,7 @@
       
                   <td>80.4</td>
                   <td>87.4</td>
-                  <td class="group-end"><strong>94.8</strong></td>
+                  <td><strong>94.8</strong></td>
                 </tr>
       
                 <tr class="performance-best-row">
@@ -793,6 +793,195 @@
                   <td><strong>81.2</strong></td>
                   <td><strong>87.5</strong></td>
                   <td><strong>94.8</strong></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+
+        <article class="performance-card">
+          <h4>Indoor Semantic Segmentation</h4>
+        
+          <div class="performance-table-wrap">
+            <table class="area-performance-table">
+              <thead>
+                <tr>
+                  <th>Attention</th>
+                  <th>Metric</th>
+                  <th>Area1</th>
+                  <th>Area2</th>
+                  <th>Area3</th>
+                  <th>Area4</th>
+                  <th>Area5</th>
+                  <th>Area6</th>
+                  <th>6-Fold</th>
+                </tr>
+              </thead>
+        
+              <tbody>
+                <!-- Transformer -->
+                <tr class="area-baseline-row area-block-start">
+                  <th rowspan="3">Transformer</th>
+                  <td>allAcc</td>
+                  <td>93.22</td>
+                  <td>86.26</td>
+                  <td>94.56</td>
+                  <td>90.72</td>
+                  <td>91.67</td>
+                  <td>94.98</td>
+                  <td>91.90</td>
+                </tr>
+                <tr class="area-baseline-row">
+                  <td>mAcc</td>
+                  <td>89.92</td>
+                  <td>74.44</td>
+                  <td>94.45</td>
+                  <td>81.11</td>
+                  <td>78.92</td>
+                  <td>93.55</td>
+                  <td>85.31</td>
+                </tr>
+                <tr class="area-baseline-row">
+                  <td>mIoU</td>
+                  <td>83.01</td>
+                  <td>63.42</td>
+                  <td>86.66</td>
+                  <td>71.34</td>
+                  <td>73.43</td>
+                  <td>87.31</td>
+                  <td>77.70</td>
+                </tr>
+        
+                <!-- Performer -->
+                <tr class="area-block-start">
+                  <th rowspan="3">Performer <span class="cite">[12]</span></th>
+                  <td>allAcc</td>
+                  <td>92.35</td>
+                  <td><strong>88.53</strong></td>
+                  <td>94.47</td>
+                  <td>85.96</td>
+                  <td>90.86</td>
+                  <td>91.20</td>
+                  <td>90.56</td>
+                </tr>
+                <tr>
+                  <td>mAcc</td>
+                  <td>88.56</td>
+                  <td>76.97</td>
+                  <td><strong>93.69</strong></td>
+                  <td>78.31</td>
+                  <td>75.63</td>
+                  <td>85.77</td>
+                  <td>83.16</td>
+                </tr>
+                <tr>
+                  <td>mIoU</td>
+                  <td>80.74</td>
+                  <td>62.60</td>
+                  <td>86.02</td>
+                  <td>62.60</td>
+                  <td>69.75</td>
+                  <td>77.35</td>
+                  <td>73.18</td>
+                </tr>
+        
+                <!-- Performer + PointRoPE -->
+                <tr class="area-block-start">
+                  <th rowspan="3" class="submethod">+ PointRoPE <span class="cite">[100]</span></th>
+                  <td>allAcc</td>
+                  <td>93.00</td>
+                  <td>86.88</td>
+                  <td>94.25</td>
+                  <td>88.29</td>
+                  <td>91.17</td>
+                  <td>94.73</td>
+                  <td>91.39</td>
+                </tr>
+                <tr>
+                  <td>mAcc</td>
+                  <td>90.06</td>
+                  <td>76.62</td>
+                  <td>93.63</td>
+                  <td>76.14</td>
+                  <td><strong>77.55</strong></td>
+                  <td>93.26</td>
+                  <td>84.54</td>
+                </tr>
+                <tr>
+                  <td>mIoU</td>
+                  <td>82.31</td>
+                  <td>61.47</td>
+                  <td>86.21</td>
+                  <td>67.38</td>
+                  <td>71.75</td>
+                  <td>86.59</td>
+                  <td>75.95</td>
+                </tr>
+        
+                <!-- RelFlexformer -->
+                <tr class="area-block-start performance-best-row">
+                  <th rowspan="3">RelFlexformer (ours)</th>
+                  <td>allAcc</td>
+                  <td>92.96</td>
+                  <td>88.07</td>
+                  <td>94.51</td>
+                  <td>88.36</td>
+                  <td>91.14</td>
+                  <td>94.65</td>
+                  <td><strong>91.62</strong></td>
+                </tr>
+                <tr class="performance-best-row">
+                  <td>mAcc</td>
+                  <td><strong>90.59</strong></td>
+                  <td><strong>77.33</strong></td>
+                  <td>93.00</td>
+                  <td>80.92</td>
+                  <td>76.79</td>
+                  <td><strong>93.33</strong></td>
+                  <td><strong>85.33</strong></td>
+                </tr>
+                <tr class="performance-best-row">
+                  <td>mIoU</td>
+                  <td>81.93</td>
+                  <td><strong>63.21</strong></td>
+                  <td>86.20</td>
+                  <td><strong>68.28</strong></td>
+                  <td>71.01</td>
+                  <td><strong>86.88</strong></td>
+                  <td>76.25</td>
+                </tr>
+        
+                <!-- RelFlexformer + PointRoPE -->
+                <tr class="area-block-start performance-best-row">
+                  <th rowspan="3" class="submethod">+ PointRoPE <span class="cite">[100]</span></th>
+                  <td>allAcc</td>
+                  <td><strong>93.32</strong></td>
+                  <td>85.84</td>
+                  <td><strong>94.57</strong></td>
+                  <td><strong>88.89</strong></td>
+                  <td><strong>91.50</strong></td>
+                  <td><strong>94.74</strong></td>
+                  <td>91.48</td>
+                </tr>
+                <tr class="performance-best-row">
+                  <td>mAcc</td>
+                  <td>90.43</td>
+                  <td>73.82</td>
+                  <td>93.64</td>
+                  <td><strong>81.59</strong></td>
+                  <td>77.44</td>
+                  <td>93.14</td>
+                  <td>85.01</td>
+                </tr>
+                <tr class="performance-best-row">
+                  <td>mIoU</td>
+                  <td><strong>82.79</strong></td>
+                  <td>62.87</td>
+                  <td><strong>86.75</strong></td>
+                  <td>68.12</td>
+                  <td><strong>72.14</strong></td>
+                  <td>86.79</td>
+                  <td><strong>76.58</strong></td>
                 </tr>
               </tbody>
             </table>
