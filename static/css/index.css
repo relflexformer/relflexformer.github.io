@@ -2041,22 +2041,27 @@ body {
 
 /* ============================================================
    Compact performance tables
+   Keep font size close to main Semantic Segmentation table
    ============================================================ */
 
 .performance-table.relflex-table {
   min-width: 980px !important;
+  font-size: 1.15rem !important;
 }
 
 .performance-table.relflex-table.classification-table {
   min-width: 720px !important;
+  font-size: 1.15rem !important;
 }
 
 .area-performance-table {
   min-width: 1040px !important;
+  font-size: 1.15rem !important;
 }
 
 .rgbd-performance-table {
   min-width: 680px !important;
+  font-size: 1.15rem !important;
 }
 
 /* Base RelFlexformer-style tables */
@@ -2076,20 +2081,33 @@ body {
 }
 
 /* Area-wise semantic segmentation */
+.area-performance-table th,
+.area-performance-table td {
+  padding: 4px 7px !important;
+}
+
 .area-performance-table thead th:first-child,
 .area-performance-table tbody th:first-child {
-  min-width: 190px !important;
-  width: 190px !important;
+  min-width: 170px !important;
+  width: 170px !important;
   padding-left: 12px !important;
-  padding-right: 12px !important;
+  padding-right: 8px !important;
 }
 
 .area-performance-table thead th:nth-child(2),
 .area-performance-table tbody td:first-of-type {
   min-width: 70px !important;
   width: 70px !important;
-  padding-left: 8px !important;
-  padding-right: 8px !important;
+  padding-left: 6px !important;
+  padding-right: 6px !important;
+}
+
+.area-performance-table thead th:nth-child(n+3),
+.area-performance-table tbody td:nth-child(n+2) {
+  min-width: 78px !important;
+  width: 78px !important;
+  padding-left: 5px !important;
+  padding-right: 5px !important;
 }
 
 /* RGB-D semantic segmentation */
@@ -2099,39 +2117,4 @@ body {
   width: 220px !important;
   padding-left: 10px !important;
   padding-right: 12px !important;
-}
-
-/* Compact area-wise semantic segmentation table */
-.area-performance-table {
-  min-width: 880px !important;
-  font-size: 1.02rem !important;
-}
-
-.area-performance-table th,
-.area-performance-table td {
-  padding: 4px 8px !important;
-}
-
-.area-performance-table thead th:first-child,
-.area-performance-table tbody th:first-child {
-  min-width: 165px !important;
-  width: 165px !important;
-  padding-left: 12px !important;
-  padding-right: 8px !important;
-}
-
-.area-performance-table thead th:nth-child(2),
-.area-performance-table tbody td:first-of-type {
-  min-width: 65px !important;
-  width: 65px !important;
-  padding-left: 6px !important;
-  padding-right: 6px !important;
-}
-
-.area-performance-table thead th:nth-child(n+3),
-.area-performance-table tbody td:nth-child(n+2) {
-  min-width: 82px !important;
-  width: 82px !important;
-  padding-left: 6px !important;
-  padding-right: 6px !important;
 }
