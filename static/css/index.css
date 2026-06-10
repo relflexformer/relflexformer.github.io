@@ -1836,7 +1836,7 @@ body {
 
 /* Area-wise semantic segmentation table */
 .area-performance-table {
-  min-width: 1180px;
+  min-width: 880px;
   width: 100%;
   border-collapse: collapse;
   font-family: "Times New Roman", Times, serif;
