@@ -1815,3 +1815,21 @@ body {
   text-decoration: underline;
   font-weight: 400;
 }
+
+/* Object classification table */
+.performance-table.relflex-table.classification-table {
+  min-width: 760px;
+}
+
+.performance-table.relflex-table.classification-table th:first-child {
+  min-width: 240px;
+}
+
+.performance-table.relflex-table.classification-table thead tr:first-child th[colspan="1"]::after {
+  content: "";
+  position: absolute;
+  left: 22px;
+  right: 22px;
+  bottom: 0;
+  border-bottom: 1.2px solid #333;
+}
