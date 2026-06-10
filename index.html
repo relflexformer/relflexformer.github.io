@@ -33,40 +33,38 @@
     <div class="container is-fullhd">
       <div class="columns is-centered">
         <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title">StereoPolicy: Improving Robotic Manipulation<br>Policies via Stereo Perception</h1>
+          <h1 class="title is-1 publication-title">RelFlexformer: Efficient Attention 3D-Transformers<br>for Integrable Relative Positional Encodings</h1>
           <div class="publication-author-list">
             <div class="author-row">
-              <span>Evans Han<sup>1,2</sup></span>
-              <span>Yunfan Jiang<sup>1</sup></span>
-              <span>Yingke Wang<sup>1,*</sup></span>
-              <span>Haoyue Xiao<sup>1,*</sup></span>
+              <span>Byeongchan Kim<sup>1</sup></span>
+              <span>Arijit Sehanobish<sup>2</sup></span>
+              <span>Avinava Dubey<sup>3</sup></span>
             </div>
             <div class="author-row">
-              <span>Huang Huang<sup>1</sup></span>
-              <span>Jianwen Xie<sup>3</sup></span>
-              <span>Jiajun Wu<sup>1</sup></span>
-              <span>Li Fei-Fei<sup>1</sup></span>
-              <span>Ruohan Zhang<sup>1,2</sup></span>
+              <span>Min-hwan Oh<sup>1</sup></span>
+              <span>Krzysztof Choromanski<sup>4,5</sup></span>
             </div>
             <div class="affiliation-row">
-              <span><sup>1</sup>Stanford University</span>
-              <span><sup>2</sup>Northwestern University</span>
-              <span><sup>3</sup>Lambda, Inc</span>
+              <span><sup>1</sup>Seoul National University</span>
+              <span><sup>2</sup>Independent</span>
+              <span><sup>3</sup>Google Research</span>
+              <span><sup>4</sup>Google DeepMind</span>
+              <span><sup>5</sup>Columbia University</span>
             </div>
           </div>
           <div class="is-size-5 publication-authors">
             Preprint
           </div>
           <div class="publication-link-row">
-            <a class="publication-link-button" href="https://arxiv.org/abs/2605.09989">
+            <a class="publication-link-button" href="https://arxiv.org/pdf/2605.10706">
               <span class="icon"><i class="ai ai-arxiv"></i></span>
               <span>arXiv</span>
             </a>
-            <a class="publication-link-button" href="#">
+            <a class="publication-link-button" href="https://github.com/97byeongchan/RelFlexformer">
               <span class="icon"><i class="fas fa-code"></i></span>
               <span>Code</span>
             </a>
-            <a class="publication-link-button" href="https://x.com/RuohanZhang76/status/2062277853564272854" target="_blank" rel="noopener noreferrer">
+            <!-- <a class="publication-link-button" href="https://x.com/RuohanZhang76/status/2062277853564272854" target="_blank" rel="noopener noreferrer">
               <span class="icon publication-x-icon">X</span>
               <span>tl;dr</span>
             </a>
@@ -77,7 +75,7 @@
             <a class="publication-link-button" href="media/papers/stereopolicy-appendix.pdf">
               <span class="icon"><i class="fas fa-file-pdf"></i></span>
               <span>Appendix</span>
-            </a>
+            </a> -->
           </div>
         </div>
       </div>
@@ -101,7 +99,7 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            Recent advances in robot imitation learning have produced powerful visuomotor policies that manipulate diverse objects from visual inputs. However, monocular observations lack depth information, which is critical for precise manipulation in cluttered or geometrically complex scenes. Explicit depth maps and point clouds are often noisy and fragile in real-world manipulation. We introduce <strong>StereoPolicy</strong>, a visuomotor policy learning framework that directly leverages synchronized stereo image pairs to improve geometric reasoning without constructing explicit 3D representations. StereoPolicy processes each image with pretrained 2D vision encoders and fuses left-right features through a cross-attention-based Stereo Transformer, capturing spatial correspondence and disparity cues implicitly. The framework integrates with diffusion-based and pretrained vision-language-action (VLA) policies, delivering consistent improvements over RGB, RGB-D, point cloud, and multi-view baselines across three simulation benchmarks and seven real-robot tabletop and bimanual mobile manipulation tasks. Our results show that stereo vision bridges 2D pretrained representations and 3D geometric understanding for robotic manipulation.
+            We present a new class of efficient attention mechanisms applying universal 3D Relative Positional Encoding (RPE) methods given by arbitrary integrable modulation functions $f$. They lead to the new class of 3D-Transformer models, called **RelFlexformers**, flexibly integrating those RPEs, and characterized by the $O(L \log L)$ time complexity of the attention computation for the $L$-length input sequences. RelFlexformers builds on the theory of the Non-Uniform Fourier Transform (NU-FFT), naturally generalizing several existing efficient RPE-attention methods from structured settings with tokens homogeneously embedded in unweighted grids into general non-structured heterogeneous scenarios, where tokens' positions are arbitrarily distributed in the corresponding 3D spaces. As such, RelFlexformers can be applied in particular to model point clouds. Our extensive empirical evaluation on a large portfolio of 3D datasets confirms quality improvements provided by the NU-FFT-driven attention modulation techniques in the RelFlexformers.
           </p>
         </div>
       </div>
