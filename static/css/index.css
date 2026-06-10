@@ -1923,3 +1923,76 @@ body {
   text-decoration: underline;
   font-weight: 400;
 }
+
+/* RGB-D semantic segmentation table */
+.rgbd-performance-table {
+  min-width: 760px;
+  width: 100%;
+  border-collapse: collapse;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 1.12rem;
+  line-height: 1.12;
+  text-align: center;
+  border-top: 2.4px solid #111;
+  border-bottom: 2.4px solid #111;
+  background: #fff;
+}
+
+.rgbd-performance-table th,
+.rgbd-performance-table td {
+  border: none;
+  padding: 6px 16px;
+  white-space: nowrap;
+  text-align: center;
+  vertical-align: middle;
+  text-transform: none !important;
+}
+
+.rgbd-performance-table thead {
+  border-bottom: 1.5px solid #111;
+}
+
+.rgbd-performance-table thead th {
+  background: transparent !important;
+  color: #000 !important;
+  border-bottom: none !important;
+  font-weight: 700;
+  font-size: 1.18rem;
+}
+
+.rgbd-performance-table thead th:first-child,
+.rgbd-performance-table tbody th:first-child {
+  text-align: left;
+  min-width: 280px;
+  padding-left: 12px;
+}
+
+.rgbd-performance-table tbody th {
+  color: #000;
+  font-weight: 700;
+}
+
+.rgbd-performance-table tbody td {
+  color: #000;
+  font-weight: 400;
+}
+
+.rgbd-performance-table tbody tr.rgbd-baseline-row th,
+.rgbd-performance-table tbody tr.rgbd-baseline-row td {
+  color: #777;
+}
+
+.rgbd-performance-table tbody tr.performance-best-row {
+  background-color: #eef5ff !important;
+}
+
+.rgbd-performance-table tbody tr.performance-best-row th,
+.rgbd-performance-table tbody tr.performance-best-row td {
+  border-bottom: none !important;
+}
+
+.rgbd-performance-table .cite {
+  color: #0000cc;
+  text-decoration: underline;
+  font-weight: 400;
+}
