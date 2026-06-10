@@ -2178,3 +2178,97 @@ body {
     grid-template-columns: 1fr;
   }
 }
+
+/* Algorithm box */
+.algorithm-section {
+  padding-top: 1.8rem;
+  padding-bottom: 1.8rem;
+}
+
+.algorithm-box {
+  background: #fff;
+  border: 1.5px solid #111;
+  border-radius: 6px;
+  box-shadow: 0 12px 28px rgba(31, 76, 124, 0.08);
+  font-family: "Times New Roman", Times, serif;
+  margin: 0 auto;
+  max-width: 980px;
+  overflow: hidden;
+}
+
+.algorithm-title {
+  background: #f4f8ff;
+  border-bottom: 1.2px solid #111;
+  color: #000;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 1.2rem;
+  line-height: 1.25;
+  padding: 0.65rem 0.9rem;
+  text-align: left;
+}
+
+.algorithm-title strong {
+  font-weight: 800;
+}
+
+.algorithm-content {
+  color: #000;
+  font-size: 1.08rem;
+  line-height: 1.35;
+  padding: 0.9rem 1.1rem 1rem;
+}
+
+.algorithm-content p {
+  margin: 0 0 0.6rem;
+}
+
+.algorithm-steps {
+  counter-reset: algorithm-step;
+  list-style: none;
+  margin: 0.9rem 0 0;
+  padding-left: 0;
+}
+
+.algorithm-steps li {
+  counter-increment: algorithm-step;
+  margin-bottom: 0.85rem;
+  padding-left: 2.2rem;
+  position: relative;
+}
+
+.algorithm-steps li::before {
+  content: counter(algorithm-step) ".";
+  font-weight: 800;
+  left: 0;
+  position: absolute;
+  top: 0;
+}
+
+.algorithm-steps li p {
+  margin-bottom: 0.25rem;
+}
+
+.algorithm-equation {
+  font-size: 1.03rem;
+  margin: 0.15rem 0 0.35rem;
+  overflow-x: auto;
+  padding: 0.1rem 0;
+}
+
+.algorithm-equation mjx-container {
+  margin: 0.2rem 0 !important;
+}
+
+@media screen and (max-width: 768px) {
+  .algorithm-title {
+    font-size: 1.02rem;
+  }
+
+  .algorithm-content {
+    font-size: 0.95rem;
+  }
+
+  .algorithm-steps li {
+    padding-left: 1.8rem;
+  }
+}
