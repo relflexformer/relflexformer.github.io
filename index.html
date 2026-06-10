@@ -987,6 +987,53 @@
             </table>
           </div>
         </article>
+
+        <article class="performance-card">
+          <h4>RGB-D Semantic Segmentation</h4>
+        
+          <div class="performance-table-wrap">
+            <table class="rgbd-performance-table">
+              <thead>
+                <tr>
+                  <th>Attention</th>
+                  <th>Complexity</th>
+                  <th>NYU v2</th>
+                  <th>SUN RGB-D</th>
+                </tr>
+              </thead>
+        
+              <tbody>
+                <tr class="rgbd-baseline-row">
+                  <th>Softmax</th>
+                  <td>\(O(n^2)\)</td>
+                  <td>55.6</td>
+                  <td>51.2</td>
+                </tr>
+        
+                <tr>
+                  <th>Performer</th>
+                  <td>\(O(n)\)</td>
+                  <td>54.44</td>
+                  <td>48.49</td>
+                </tr>
+        
+                <tr>
+                  <th>Performer + STRING <span class="cite">[63]</span></th>
+                  <td>\(O(n \log n)\)</td>
+                  <td>54.96</td>
+                  <td>50.87</td>
+                </tr>
+        
+                <tr class="performance-best-row">
+                  <th>RelFlexFormer (ours)</th>
+                  <td>\(O(n \log n)\)</td>
+                  <td><strong>55.32</strong></td>
+                  <td><strong>51.04</strong></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
       </div>
           <p class="performance-caption">
             <strong>Real-World Tabletop Task Performance.</strong> <strong>StereoPolicy-DP</strong> consistently outperforms other visual modalities. PCD performs worst in all real tasks; both RGBD and PCD fail on glass cup hang tasks.
