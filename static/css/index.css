@@ -1833,3 +1833,93 @@ body {
   bottom: 0;
   border-bottom: 1.2px solid #333;
 }
+
+/* Area-wise semantic segmentation table */
+.area-performance-table {
+  min-width: 1180px;
+  width: 100%;
+  border-collapse: collapse;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 1.08rem;
+  line-height: 1.08;
+  text-align: center;
+  border-top: 2.4px solid #111;
+  border-bottom: 2.4px solid #111;
+  background: #fff;
+}
+
+.area-performance-table th,
+.area-performance-table td {
+  border: none;
+  padding: 4px 13px;
+  white-space: nowrap;
+  text-align: center;
+  vertical-align: middle;
+  text-transform: none !important;
+}
+
+.area-performance-table thead {
+  border-bottom: 1.5px solid #111;
+}
+
+.area-performance-table thead th {
+  background: transparent !important;
+  color: #000 !important;
+  border-bottom: none !important;
+  font-weight: 700;
+  font-size: 1.16rem;
+}
+
+.area-performance-table thead th:first-child,
+.area-performance-table tbody th:first-child {
+  text-align: left;
+  min-width: 250px;
+  padding-left: 16px;
+  padding-right: 20px;
+}
+
+.area-performance-table thead th:nth-child(2),
+.area-performance-table tbody td:first-of-type {
+  text-align: left;
+  min-width: 90px;
+  padding-left: 10px;
+}
+
+.area-performance-table tbody tr.area-block-start {
+  border-top: 1.3px solid #111;
+}
+
+.area-performance-table tbody tr.area-baseline-row th,
+.area-performance-table tbody tr.area-baseline-row td {
+  color: #777;
+}
+
+.area-performance-table tbody th {
+  color: #000;
+  font-weight: 700;
+}
+
+.area-performance-table tbody td {
+  color: #000;
+  font-weight: 400;
+}
+
+.area-performance-table tbody tr.performance-best-row {
+  background-color: #eef5ff !important;
+}
+
+.area-performance-table tbody tr.performance-best-row th,
+.area-performance-table tbody tr.performance-best-row td {
+  border-bottom: none !important;
+}
+
+.area-performance-table .submethod {
+  padding-left: 28px !important;
+  font-weight: 600;
+}
+
+.area-performance-table .cite {
+  color: #0000cc;
+  text-decoration: underline;
+  font-weight: 400;
+}
