@@ -2038,3 +2038,65 @@ body {
     font-size: 1.05rem;
   }
 }
+
+/* ============================================================
+   Compact performance tables
+   ============================================================ */
+
+.performance-table.relflex-table {
+  min-width: 980px !important;
+}
+
+.performance-table.relflex-table.classification-table {
+  min-width: 720px !important;
+}
+
+.area-performance-table {
+  min-width: 1040px !important;
+}
+
+.rgbd-performance-table {
+  min-width: 680px !important;
+}
+
+/* Base RelFlexformer-style tables */
+.performance-table.relflex-table thead tr:first-child th:first-child,
+.performance-table.relflex-table tbody th:first-child {
+  min-width: 150px !important;
+  width: 150px !important;
+  padding-left: 10px !important;
+  padding-right: 12px !important;
+}
+
+/* Object classification */
+.performance-table.relflex-table.classification-table thead tr:first-child th:first-child,
+.performance-table.relflex-table.classification-table tbody th:first-child {
+  min-width: 180px !important;
+  width: 180px !important;
+}
+
+/* Area-wise semantic segmentation */
+.area-performance-table thead th:first-child,
+.area-performance-table tbody th:first-child {
+  min-width: 190px !important;
+  width: 190px !important;
+  padding-left: 12px !important;
+  padding-right: 12px !important;
+}
+
+.area-performance-table thead th:nth-child(2),
+.area-performance-table tbody td:first-of-type {
+  min-width: 70px !important;
+  width: 70px !important;
+  padding-left: 8px !important;
+  padding-right: 8px !important;
+}
+
+/* RGB-D semantic segmentation */
+.rgbd-performance-table thead th:first-child,
+.rgbd-performance-table tbody th:first-child {
+  min-width: 220px !important;
+  width: 220px !important;
+  padding-left: 10px !important;
+  padding-right: 12px !important;
+}
