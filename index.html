@@ -276,6 +276,11 @@
     <div class="rows is-centered">
       <div class="row is-full-width">
         <h2 class="title is-3">FastMult Analysis</h2>
+        <div class="content has-text-justified">
+          <p>
+            <strong>Execution time (ms) as a function of sequence length and accuracy of our FastMult algorithm.</strong>
+          </p>
+        </div>
 
         <div class="overview-click-note">
           <span class="icon"><i class="fas fa-mouse-pointer"></i></span>
@@ -334,18 +339,6 @@
               The standard Transformer runs out of memory for sequence lengths L ≥ 16k, while RelFlexformer scales to longer sequences.
             </p>
           </div>
-
-          <figcaption class="paper-figure-caption">
-            <strong>Figure 1:</strong>
-            Execution time (ms) as a function of sequence length \(L\) and accuracy of our FastMult algorithm.
-            <strong>Left:</strong> Performance comparison of Transformer, Performer, and RelFlexformer models.
-            Note that the standard Transformer encounters an Out-of-Memory (OOM) error for sequence lengths
-            \(L \geq 16k\).
-            <strong>Middle:</strong> Execution time comparison of the Naive approach versus FastMult.
-            <strong>Right:</strong> Relative error of stochastic quadrature approximation to exact mask
-            matrix-vector product as a function of the quadrature size \(S\). Error decays as \(O(1/\sqrt{S})\).
-          </figcaption>
-
         </figure>
       </div>
     </div>
