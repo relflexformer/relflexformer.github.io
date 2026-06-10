@@ -11,11 +11,10 @@
   <script>
     window.MathJax = {
       tex: {
-        inlineMath: [['$', '$'], ['\\(', '\\)']]
+        inlineMath: [['\\(', '\\)'], ['$', '$']],
+        displayMath: [['\\[', '\\]'], ['$$', '$$']]
       },
-      svg: {
-        fontCache: 'global'
-      }
+      svg: { fontCache: 'global' }
     };
   </script>
   <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
@@ -270,6 +269,86 @@
   </div>
 </section>
 
+
+<section class="section algorithm-section">
+  <div class="container is-max-widescreen">
+
+    <div class="algorithm-box">
+      <div class="algorithm-title">
+        <strong>Algorithm 1:</strong>
+        <span>\(\mathrm{FastMult}_{\mathbf{M}}\): NU-FFT Mask Multiplication</span>
+      </div>
+
+      <div class="algorithm-content">
+        <p>
+          <strong>Input:</strong>
+          Input vector \(\mathbf{u} \in \mathbb{R}^{L}\), token coordinates
+          \(\{\mathbf{r}_{i}\}_{i=1}^{L} \in \mathbb{R}^{d}\), spatial modulation function \(f\),
+          quadrature samples \(\{\xi_{s}\}_{s=1}^{S}\) and coefficients \(\{a_{s}\}_{s=1}^{S}\).
+        </p>
+
+        <p>
+          <strong>Output:</strong>
+          Vector \(\mathbf{w} \in \mathbb{R}^{L}\) approximating \(\mathbf{M}\mathbf{u}\).
+        </p>
+
+        <ol class="algorithm-steps">
+          <li>
+            <p>
+              Compute the Fourier Transform of the point cloud signal at sampled frequencies
+              \(s \in \{1, \dots, S\}\) using the forward Non-Uniform FFT in \(O(L \log L)\) time:
+            </p>
+            <div class="algorithm-equation">
+              \[
+                \mathcal{F}_{P}(\xi_{s})
+                =
+                \sum_{l=1}^{L}
+                u_{l}
+                \exp(-2\pi i \xi_{s}^{\top} \mathbf{r}_{l}).
+              \]
+            </div>
+          </li>
+
+          <li>
+            <p>
+              Calculate the modulated coefficients for each frequency sample using the spatial mask's
+              Fourier Transform:
+            </p>
+            <div class="algorithm-equation">
+              \[
+                b_{s}
+                =
+                a_{s}
+                \mathcal{F}_{f}(\xi_{s})
+                \mathcal{F}_{P}(\xi_{s}).
+              \]
+            </div>
+          </li>
+
+          <li>
+            <p>
+              Output the final evaluated function at the point coordinates
+              \(i \in \{1, \dots, L\}\) using the inverse Non-Uniform FFT in \(O(L \log L)\) time:
+            </p>
+            <div class="algorithm-equation">
+              \[
+                \mathbf{w}_{i}
+                =
+                \sum_{s=1}^{S}
+                b_{s}
+                \exp(2\pi i \xi_{s}^{\top} \mathbf{r}_{i}).
+              \]
+            </div>
+          </li>
+        </ol>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+      
+      
 <section class="section">
   <div class="container is-max-widescreen">
 
