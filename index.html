@@ -273,43 +273,82 @@
 <section class="section">
   <div class="container is-max-widescreen">
 
-    <figure class="paper-figure-block">
-      <div class="paper-subfigure-grid">
+    <div class="rows is-centered">
+      <div class="row is-full-width">
+        <h2 class="title is-3">FastMult Analysis</h2>
 
-        <div class="paper-subfigure">
-          <img 
-            src="media/figures/fastmult-left.png?v=1" 
-            alt="Performance comparison of Transformer variants"
-          />
+        <div class="overview-click-note">
+          <span class="icon"><i class="fas fa-mouse-pointer"></i></span>
+          <span>Click each panel to highlight it and read what it shows.</span>
         </div>
 
-        <div class="paper-subfigure">
-          <img 
-            src="media/figures/fastmult-middle.png?v=1" 
-            alt="Performance comparison of Naive versus FastMult"
-          />
-        </div>
+        <figure class="paper-figure-block interactive-fastmult-figure">
 
-        <div class="paper-subfigure">
-          <img 
-            src="media/figures/fastmult-right.png?v=1" 
-            alt="Relative error versus quadrature size"
-          />
-        </div>
+          <div class="paper-subfigure-grid fastmult-click-grid">
 
+            <button
+              class="paper-subfigure fastmult-panel is-active"
+              type="button"
+              aria-label="Left panel: Transformer variants"
+              data-title="Left: Transformer variants"
+              data-description="Performance comparison of Transformer, Performer, and RelFlexformer models as sequence length increases. The standard Transformer runs out of memory for sequence lengths L ≥ 16k, while RelFlexformer scales to longer sequences."
+            >
+              <img 
+                src="media/figures/fastmult-left.png?v=1" 
+                alt="Performance comparison of Transformer variants"
+              />
+            </button>
+
+            <button
+              class="paper-subfigure fastmult-panel"
+              type="button"
+              aria-label="Middle panel: Naive versus FastMult"
+              data-title="Middle: Naive vs. FastMult"
+              data-description="Execution time comparison between the naive multiplication approach and FastMult. FastMult is substantially faster, especially as the sequence length grows."
+            >
+              <img 
+                src="media/figures/fastmult-middle.png?v=1" 
+                alt="Performance comparison of Naive versus FastMult"
+              />
+            </button>
+
+            <button
+              class="paper-subfigure fastmult-panel"
+              type="button"
+              aria-label="Right panel: Relative error versus quadrature size"
+              data-title="Right: Accuracy of FastMult"
+              data-description="Relative error of stochastic quadrature approximation to the exact mask matrix-vector product as a function of quadrature size S. The error decreases as the quadrature size increases, following the expected O(1/√S) behavior."
+            >
+              <img 
+                src="media/figures/fastmult-right.png?v=1" 
+                alt="Relative error versus quadrature size"
+              />
+            </button>
+
+          </div>
+
+          <div class="overview-info-panel fastmult-info-panel" id="fastmult-info-panel" aria-live="polite">
+            <h3>Left: Transformer variants</h3>
+            <p>
+              Performance comparison of Transformer, Performer, and RelFlexformer models as sequence length increases.
+              The standard Transformer runs out of memory for sequence lengths L ≥ 16k, while RelFlexformer scales to longer sequences.
+            </p>
+          </div>
+
+          <figcaption class="paper-figure-caption">
+            <strong>Figure 1:</strong>
+            Execution time (ms) as a function of sequence length \(L\) and accuracy of our FastMult algorithm.
+            <strong>Left:</strong> Performance comparison of Transformer, Performer, and RelFlexformer models.
+            Note that the standard Transformer encounters an Out-of-Memory (OOM) error for sequence lengths
+            \(L \geq 16k\).
+            <strong>Middle:</strong> Execution time comparison of the Naive approach versus FastMult.
+            <strong>Right:</strong> Relative error of stochastic quadrature approximation to exact mask
+            matrix-vector product as a function of the quadrature size \(S\). Error decays as \(O(1/\sqrt{S})\).
+          </figcaption>
+
+        </figure>
       </div>
-
-      <figcaption class="paper-figure-caption">
-        <strong>Figure 1:</strong>
-        Execution time (ms) as a function of sequence length \(L\) and accuracy of our FastMult algorithm.
-        <strong>Left:</strong> Performance comparison of Transformer, Performer, and RelFlexformer models.
-        Note that the standard Transformer encounters an Out-of-Memory (OOM) error for sequence lengths
-        \(L \geq 16k\).
-        <strong>Middle:</strong> Execution time comparison of the Naive approach versus FastMult.
-        <strong>Right:</strong> Relative error of stochastic quadrature approximation to exact mask
-        matrix-vector product as a function of the quadrature size \(S\). Error decays as \(O(1/\sqrt{S})\).
-      </figcaption>
-    </figure>
+    </div>
 
   </div>
 </section>
