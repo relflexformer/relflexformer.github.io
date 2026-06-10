@@ -1751,13 +1751,8 @@ body {
   border-left: 1.2px solid #555;
 }
 
-.performance-table.relflex-table thead tr:nth-child(2) th:nth-child(3),
-.performance-table.relflex-table thead tr:nth-child(2) th:nth-child(6),
-.performance-table.relflex-table thead tr:nth-child(2) th:nth-child(9),
-.performance-table.relflex-table tbody td:nth-child(4),
-.performance-table.relflex-table tbody td:nth-child(7),
-.performance-table.relflex-table tbody td:nth-child(10) {
-  border-right: 1.2px solid #555;
+.performance-table.relflex-table .group-end {
+  border-right: 1.2px solid #555 !important;
 }
 
 .performance-table.relflex-table thead tr:first-child th[colspan="3"] {
