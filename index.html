@@ -93,13 +93,13 @@
   </div>
 </section>
 
-<section class="section project-video-section">
+<!-- <section class="section project-video-section">
   <div class="container is-max-widescreen">
     <video class="project-demo-video" controls playsinline preload="metadata">
       <source src="media/videos/stereopolicy-demo.mp4" type="video/mp4">
     </video>
   </div>
-</section>
+</section> -->
 
 <section class="hero teaser">
   <div class="container is-max-widescreen">
@@ -116,13 +116,13 @@
     </div>
     <!--/ Abstract. -->
 
-    <div class="hero-body">
+    <!-- <div class="hero-body">
       <div class="container">
         <div class="columns is-vcentered is-centered">
           <img src="media/figures/stereopolicy-motivation-updated.jpg?v=2" class="interpolation-image" alt="Motivation of StereoPolicy" />
         </div>
       </div>
-    </div>
+    </div> -->
 
   </div>
 
@@ -267,6 +267,50 @@
           </div>
 
     </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-widescreen">
+
+    <figure class="paper-figure-block">
+      <div class="paper-subfigure-grid">
+
+        <div class="paper-subfigure">
+          <img 
+            src="media/figures/fastmult-left.png?v=1" 
+            alt="Performance comparison of Transformer variants"
+          />
+        </div>
+
+        <div class="paper-subfigure">
+          <img 
+            src="media/figures/fastmult-middle.png?v=1" 
+            alt="Performance comparison of Naive versus FastMult"
+          />
+        </div>
+
+        <div class="paper-subfigure">
+          <img 
+            src="media/figures/fastmult-right.png?v=1" 
+            alt="Relative error versus quadrature size"
+          />
+        </div>
+
+      </div>
+
+      <figcaption class="paper-figure-caption">
+        <strong>Figure 1:</strong>
+        Execution time (ms) as a function of sequence length \(L\) and accuracy of our FastMult algorithm.
+        <strong>Left:</strong> Performance comparison of Transformer, Performer, and RelFlexformer models.
+        Note that the standard Transformer encounters an Out-of-Memory (OOM) error for sequence lengths
+        \(L \geq 16k\).
+        <strong>Middle:</strong> Execution time comparison of the Naive approach versus FastMult.
+        <strong>Right:</strong> Relative error of stochastic quadrature approximation to exact mask
+        matrix-vector product as a function of the quadrature size \(S\). Error decays as \(O(1/\sqrt{S})\).
+      </figcaption>
+    </figure>
+
   </div>
 </section>
 
