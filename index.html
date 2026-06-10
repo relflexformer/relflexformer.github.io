@@ -8,7 +8,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>StereoPolicy</title>
 
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      },
+      svg: {
+        fontCache: 'global'
+      }
+    };
   </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
 
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
         rel="stylesheet">
@@ -99,7 +109,7 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            We present a new class of efficient attention mechanisms applying universal 3D Relative Positional Encoding (RPE) methods given by arbitrary integrable modulation functions $f$. They lead to the new class of 3D-Transformer models, called **RelFlexformers**, flexibly integrating those RPEs, and characterized by the $O(L \log L)$ time complexity of the attention computation for the $L$-length input sequences. RelFlexformers builds on the theory of the Non-Uniform Fourier Transform (NU-FFT), naturally generalizing several existing efficient RPE-attention methods from structured settings with tokens homogeneously embedded in unweighted grids into general non-structured heterogeneous scenarios, where tokens' positions are arbitrarily distributed in the corresponding 3D spaces. As such, RelFlexformers can be applied in particular to model point clouds. Our extensive empirical evaluation on a large portfolio of 3D datasets confirms quality improvements provided by the NU-FFT-driven attention modulation techniques in the RelFlexformers.
+            We present a new class of efficient attention mechanisms applying universal 3D Relative Positional Encoding (RPE) methods given by arbitrary integrable modulation functions \(f\). They lead to the new class of 3D-Transformer models, called <strong>RelFlexformers</strong>, flexibly integrating those RPEs, and characterized by the \(O(L \log L)\) time complexity of the attention computation for the $L$-length input sequences. RelFlexformers builds on the theory of the Non-Uniform Fourier Transform (NU-FFT), naturally generalizing several existing efficient RPE-attention methods from structured settings with tokens homogeneously embedded in unweighted grids into general non-structured heterogeneous scenarios, where tokens' positions are arbitrarily distributed in the corresponding 3D spaces. As such, RelFlexformers can be applied in particular to model point clouds. Our extensive empirical evaluation on a large portfolio of 3D datasets confirms quality improvements provided by the NU-FFT-driven attention modulation techniques in the RelFlexformers.
           </p>
         </div>
       </div>
