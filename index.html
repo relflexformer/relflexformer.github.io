@@ -602,6 +602,70 @@
 
       <div class="deployment-performance">
         <h3 class="title is-4">Performance</h3>
+
+        <article class="performance-card">
+          <h4>Object Classification</h4>
+        
+          <div class="performance-table-wrap">
+            <table class="performance-table relflex-table classification-table">
+              <thead>
+                <tr>
+                  <th rowspan="2">Attention</th>
+                  <th class="dataset-head group-end" colspan="1">ModelNet40</th>
+                  <th class="dataset-head last-dataset-head" colspan="2">ScanObjectNN</th>
+                </tr>
+                <tr>
+                  <th class="group-end">OA</th>
+        
+                  <th>mAcc</th>
+                  <th>OA</th>
+                </tr>
+              </thead>
+        
+              <tbody>
+                <tr class="baseline-row">
+                  <th>Transformer</th>
+                  <td class="group-end">93.2</td>
+        
+                  <td>80.5</td>
+                  <td>84.0</td>
+                </tr>
+        
+                <tr>
+                  <th>Performer</th>
+                  <td class="group-end">92.34</td>
+        
+                  <td>80.47</td>
+                  <td>83.16</td>
+                </tr>
+        
+                <tr>
+                  <th class="submethod">+ PointRoPE</th>
+                  <td class="group-end">92.48</td>
+        
+                  <td>80.36</td>
+                  <td>83.88</td>
+                </tr>
+        
+                <tr class="performance-best-row">
+                  <th>RelFlexformer (ours)</th>
+                  <td class="group-end"><strong>92.94</strong></td>
+        
+                  <td><strong>81.56</strong></td>
+                  <td><strong>84.45</strong></td>
+                </tr>
+        
+                <tr class="performance-best-row">
+                  <th class="submethod">+ PointRoPE</th>
+                  <td class="group-end">92.55</td>
+        
+                  <td>81.49</td>
+                  <td>84.26</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
       
         <article class="performance-card">
           <h4>Semantic Segmentation</h4>
