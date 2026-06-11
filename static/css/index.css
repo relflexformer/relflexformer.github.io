@@ -2272,3 +2272,18 @@ body {
     padding-left: 1.8rem;
   }
 }
+
+
+
+/* Single paper-style figure */
+.single-paper-figure {
+  margin: 1.5rem auto 2.5rem;
+}
+
+.single-paper-figure img {
+  display: block;
+  width: 100%;
+  max-width: 1120px;
+  height: auto;
+  margin: 0 auto;
+}
