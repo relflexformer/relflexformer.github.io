@@ -341,16 +341,15 @@
           <div class="attention-click-grid">
 
             <button
-              class="attention-panel attention-panel-ours"
+              class="attention-panel is-active"
               type="button"
-              aria-label="RelFlexformer attention map"
-              data-title="RelFlexformer"
-              data-description="RelFlexformer produces a more localized and structured attention response around the query point. The spatial modulation encourages stronger attention to geometrically relevant nearby regions."
+              aria-label="Input query point"
+              data-title="Input: query point"
+              data-description="The input scene with the selected query point marked by a green star. The following panels visualize how each attention mechanism distributes attention relative to this same query location."
             >
-              <span class="ours-badge">Ours</span>
               <img 
-                src="media/figures/attention_relflexformer.png?v=1" 
-                alt="RelFlexformer attention map"
+                src="media/figures/attention_input.png?v=1" 
+                alt="Input image with query point"
               />
             </button>
 
@@ -381,12 +380,13 @@
             </button>
 
             <button
-              class="attention-panel"
+              class="attention-panel attention-panel-ours"
               type="button"
               aria-label="RelFlexformer attention map"
               data-title="RelFlexformer"
               data-description="RelFlexformer produces a more localized and structured attention response around the query point. The spatial modulation encourages stronger attention to geometrically relevant nearby regions."
             >
+              <span class="ours-badge">Ours</span>
               <img 
                 src="media/figures/attention_relflexformer.png?v=1" 
                 alt="RelFlexformer attention map"
