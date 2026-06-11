@@ -2397,3 +2397,180 @@ body {
   top: 0.75rem;
   z-index: 2;
 }
+
+/* ============================================================
+   Qualitative analysis: attention visualization
+   ============================================================ */
+
+.qualitative-subtitle {
+  margin-top: 2.8rem;
+}
+
+.interactive-attention-figure {
+  margin-top: 1rem;
+}
+
+.attention-click-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.15rem;
+  align-items: stretch;
+}
+
+.attention-panel {
+  appearance: none;
+  background: #fff;
+  border: 1px solid #d6e3f5;
+  border-radius: 8px;
+  cursor: pointer;
+  display: block;
+  margin: 0;
+  min-width: 0;
+  overflow: hidden;
+  padding: 0.45rem;
+  position: relative;
+  transition:
+    border-color 0.16s ease,
+    box-shadow 0.16s ease,
+    transform 0.16s ease,
+    background 0.16s ease;
+}
+
+.attention-panel:hover,
+.attention-panel:focus-visible {
+  border-color: rgba(31, 76, 124, 0.85);
+  box-shadow: 0 10px 24px rgba(31, 76, 124, 0.14);
+  outline: none;
+  transform: translateY(-2px);
+}
+
+.attention-panel.is-active {
+  background: #f4f8ff;
+  border-color: #1f4c7c;
+  box-shadow: 0 12px 28px rgba(31, 76, 124, 0.18);
+  transform: translateY(-2px);
+}
+
+.attention-panel img {
+  display: block;
+  height: auto;
+  width: 100%;
+}
+
+.attention-panel-ours {
+  border-color: rgba(31, 76, 124, 0.45);
+}
+
+.attention-panel-ours.is-active {
+  border-color: #1f4c7c;
+  box-shadow:
+    0 0 0 3px rgba(31, 76, 124, 0.15),
+    0 14px 30px rgba(31, 76, 124, 0.2);
+}
+
+.ours-badge {
+  background: #1f4c7c;
+  border-radius: 999px;
+  color: #fff;
+  display: inline-flex;
+  font-family: 'Google Sans', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  line-height: 1;
+  padding: 0.42rem 0.62rem;
+  position: absolute;
+  right: 0.85rem;
+  top: 0.85rem;
+  text-transform: uppercase;
+  z-index: 3;
+}
+
+.attention-info-panel {
+  margin-top: 1rem;
+}
+
+/* ============================================================
+   Distance-attention correlation figure
+   ============================================================ */
+
+.single-paper-figure {
+  margin-top: 1rem;
+}
+
+.distance-attention-figure {
+  margin-top: 1rem;
+}
+
+.distance-attention-figure img {
+  display: block;
+  height: auto;
+  margin: 0 auto;
+  max-width: 92%;
+  width: 92%;
+}
+
+.mask-figure-caption,
+.distance-attention-caption {
+  align-items: stretch;
+  background: #f4f8ff;
+  border: 1px solid #b9cce8;
+  border-left: 5px solid #1f4c7c;
+  box-shadow: 0 10px 26px rgba(31, 76, 124, 0.08);
+  display: grid;
+  grid-template-columns: 7rem 1fr;
+  gap: 1rem;
+  margin: 1rem auto 0;
+  max-width: 92%;
+  padding: 1rem 1.15rem;
+}
+
+.caption-label {
+  align-items: center;
+  color: #1f4c7c;
+  display: flex;
+  font-family: 'Google Sans', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 900;
+  justify-content: center;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.caption-body {
+  color: #222;
+  font-family: 'Google Sans', 'Noto Sans', sans-serif;
+  font-size: 0.98rem;
+  line-height: 1.45;
+  text-align: left;
+}
+
+.caption-body p {
+  margin: 0;
+}
+
+.caption-body p + p {
+  margin-top: 0.45rem;
+}
+
+@media screen and (max-width: 768px) {
+  .attention-click-grid {
+    grid-template-columns: 1fr;
+    gap: 0.9rem;
+  }
+
+  .distance-attention-figure img {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .mask-figure-caption,
+  .distance-attention-caption {
+    grid-template-columns: 1fr;
+    max-width: 100%;
+  }
+
+  .caption-label {
+    justify-content: flex-start;
+  }
+}
