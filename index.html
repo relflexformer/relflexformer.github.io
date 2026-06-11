@@ -276,20 +276,42 @@
 <section class="section">
   <div class="container is-max-widescreen">
 
-    <figure class="paper-figure-block single-paper-figure">
-      <img
-        src="media/figures/kernel_comparison.png?v=1"
-        alt="RelFlexformer mask behavior analysis"
-      />
+    <div class="rows is-centered">
+      <div class="row is-full-width">
+        <h2 class="title is-3">Mask Behavior Analysis</h2>
 
-      <figcaption class="paper-figure-caption">
-        <em>RelFlexformer</em> mask behavior analysis. We compare our proposed kernels with standard
-        Heat/RBF and Laplace kernels. As the Euclidean distance between points increases, the mask values
-        decay smoothly, showing that the proposed modulation functions preserve spatial locality.
-        The tight scatter around the reference curves further suggests stable kernel behavior across
-        varying spatial scales.
-      </figcaption>
-    </figure>
+        <div class="content has-text-justified mask-analysis-intro">
+          <p>
+            <strong>RelFlexformer uses flexible spatial modulation functions to control how token interactions decay with distance.</strong>
+            We visualize the behavior of the proposed kernels and compare them with standard Heat/RBF and Laplace kernels.
+          </p>
+        </div>
+
+        <figure class="paper-figure-block single-paper-figure mask-behavior-figure">
+          <img
+            src="media/figures/kernel_comparison.png?v=1"
+            alt="RelFlexformer mask behavior analysis"
+          />
+
+          <figcaption class="mask-figure-caption">
+            <div class="caption-label">Figure 2</div>
+
+            <div class="caption-body">
+              <p>
+                <strong><em>RelFlexformer</em> mask behavior analysis.</strong>
+                As the Euclidean distance between points increases, the mask values decay smoothly,
+                showing that the proposed modulation functions preserve spatial locality.
+              </p>
+
+              <p>
+                The tight scatter around the reference Heat/RBF and Laplace curves suggests stable
+                kernel behavior across varying spatial scales.
+              </p>
+            </div>
+          </figcaption>
+        </figure>
+      </div>
+    </div>
 
   </div>
 </section>
