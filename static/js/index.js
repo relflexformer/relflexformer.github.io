@@ -249,3 +249,27 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 });
+
+
+document.addEventListener("DOMContentLoaded", function () {
+  const attentionPanels = document.querySelectorAll(".attention-panel");
+  const attentionInfoPanel = document.getElementById("attention-info-panel");
+
+  if (attentionPanels.length > 0 && attentionInfoPanel) {
+    const titleEl = attentionInfoPanel.querySelector("h3");
+    const descEl = attentionInfoPanel.querySelector("p");
+
+    attentionPanels.forEach((panel) => {
+      panel.addEventListener("click", () => {
+        attentionPanels.forEach((p) => p.classList.remove("is-active"));
+        panel.classList.add("is-active");
+
+        const title = panel.dataset.title || "";
+        const description = panel.dataset.description || "";
+
+        if (titleEl) titleEl.textContent = title;
+        if (descEl) descEl.textContent = description;
+      });
+    });
+  }
+});
