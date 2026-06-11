@@ -316,6 +316,99 @@
   </div>
 </section>
 
+
+<section class="section">
+  <div class="container is-max-widescreen">
+
+    <div class="rows is-centered">
+      <div class="row is-full-width">
+        <h2 class="title is-3">Attention Map Visualization</h2>
+
+        <div class="content has-text-justified">
+          <p>
+            <strong>Attention behavior around a selected query point.</strong>
+            We visualize how different attention mechanisms distribute attention around the same input location.
+          </p>
+        </div>
+
+        <div class="overview-click-note">
+          <span class="icon"><i class="fas fa-mouse-pointer"></i></span>
+          <span>Click each panel to highlight it and read what it shows.</span>
+        </div>
+
+        <figure class="paper-figure-block interactive-attention-figure">
+
+          <div class="attention-click-grid">
+
+            <button
+              class="attention-panel is-active"
+              type="button"
+              aria-label="Input query point"
+              data-title="Input: query point"
+              data-description="The input scene with the selected query point marked by a green star. The following panels visualize how each attention mechanism distributes attention relative to this same query location."
+            >
+              <img 
+                src="media/figures/attention_input.png?v=1" 
+                alt="Input image with selected query point"
+              />
+            </button>
+
+            <button
+              class="attention-panel"
+              type="button"
+              aria-label="Dense Softmax attention map"
+              data-title="Dense Softmax"
+              data-description="Dense Softmax attention produces a full attention map over the image. It can capture broad interactions, but the attention pattern is relatively diffuse and computationally expensive for long sequences."
+            >
+              <img 
+                src="media/figures/attention_dense_transformer.png?v=1" 
+                alt="Dense Softmax attention map"
+              />
+            </button>
+
+            <button
+              class="attention-panel"
+              type="button"
+              aria-label="Performer attention map"
+              data-title="Performer"
+              data-description="Performer provides an efficient approximation to softmax attention. The resulting attention pattern is more spread out, showing weaker spatial selectivity around the query point."
+            >
+              <img 
+                src="media/figures/attention_performer.png?v=1" 
+                alt="Performer attention map"
+              />
+            </button>
+
+            <button
+              class="attention-panel"
+              type="button"
+              aria-label="RelFlexformer attention map"
+              data-title="RelFlexformer"
+              data-description="RelFlexformer produces a more localized and structured attention response around the query point. The spatial modulation encourages stronger attention to geometrically relevant nearby regions."
+            >
+              <img 
+                src="media/figures/attention_relflexformer.png?v=1" 
+                alt="RelFlexformer attention map"
+              />
+            </button>
+
+          </div>
+
+          <div class="overview-info-panel attention-info-panel" id="attention-info-panel" aria-live="polite">
+            <h3>Input: query point</h3>
+            <p>
+              The input scene with the selected query point marked by a green star. The following panels visualize
+              how each attention mechanism distributes attention relative to this same query location.
+            </p>
+          </div>
+
+        </figure>
+      </div>
+    </div>
+
+  </div>
+</section>
+  
   
 <section class="section">
   <div class="container is-max-widescreen">
