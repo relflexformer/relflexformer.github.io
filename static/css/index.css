@@ -2522,7 +2522,7 @@ body {
   grid-template-columns: 7rem 1fr;
   gap: 1rem;
   margin: 1rem auto 0;
-  max-width: 92%;
+  max-width: 100%;
   padding: 1rem 1.15rem;
 }
 
