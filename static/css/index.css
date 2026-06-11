@@ -2282,8 +2282,16 @@ body {
 
 .single-paper-figure img {
   display: block;
-  width: 100%;
-  max-width: 1120px;
+  width: 90%;
+  max-width: 980px;
   height: auto;
   margin: 0 auto;
+}
+
+.mask-analysis-intro {
+  font-family: 'Google Sans', 'Noto Sans', sans-serif;
+  font-size: 1.02rem;
+  line-height: 1.6;
+  margin: 0.3rem auto 1.15rem;
+  max-width: 980px;
 }
