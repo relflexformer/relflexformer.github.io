@@ -225,3 +225,27 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 });
+
+
+document.addEventListener("DOMContentLoaded", function () {
+  const panels = document.querySelectorAll(".attention-panel");
+  const infoPanel = document.getElementById("attention-info-panel");
+
+  if (!panels.length || !infoPanel) return;
+
+  const infoTitle = infoPanel.querySelector("h3");
+  const infoDescription = infoPanel.querySelector("p");
+
+  panels.forEach((panel) => {
+    panel.addEventListener("click", function () {
+      panels.forEach((p) => p.classList.remove("is-active"));
+      panel.classList.add("is-active");
+
+      const title = panel.dataset.title || "Attention panel";
+      const description = panel.dataset.description || "";
+
+      infoTitle.textContent = title;
+      infoDescription.textContent = description;
+    });
+  });
+});
