@@ -2627,7 +2627,7 @@ body {
 }
 
 .performance-section-title {
-  color: #1f4c7c;
+  color: #222;
   font-family: 'Google Sans', 'Noto Sans', sans-serif;
   font-size: clamp(2.1rem, 3vw, 3rem);
   font-weight: 800;
