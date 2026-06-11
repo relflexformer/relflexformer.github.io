@@ -2303,7 +2303,7 @@ body {
 
 .attention-click-grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 1rem;
   align-items: start;
 }
@@ -2353,14 +2353,47 @@ body {
   margin-bottom: 0.35rem;
 }
 
-@media screen and (max-width: 1024px) {
-  .attention-click-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
-
 @media screen and (max-width: 640px) {
   .attention-click-grid {
     grid-template-columns: 1fr;
   }
+}
+
+/* Emphasize RelFlexformer attention panel */
+.attention-panel-ours {
+  border-color: rgba(31, 76, 124, 0.55);
+  background: #f4f8ff;
+  position: relative;
+}
+
+.attention-panel-ours::after {
+  content: "";
+  position: absolute;
+  inset: 0.45rem;
+  border: 2px solid rgba(31, 76, 124, 0.55);
+  border-radius: 4px;
+  pointer-events: none;
+}
+
+.attention-panel-ours.is-active {
+  background: rgba(31, 76, 124, 0.09);
+  border-color: rgba(31, 76, 124, 1);
+  box-shadow: 0 0 0 4px rgba(31, 76, 124, 0.14), 0 14px 32px rgba(31, 76, 124, 0.18);
+}
+
+.ours-badge {
+  background: #1f4c7c;
+  border-radius: 999px;
+  color: #fff;
+  font-family: 'Google Sans', 'Noto Sans', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 800;
+  left: 0.75rem;
+  letter-spacing: 0.03em;
+  line-height: 1;
+  padding: 0.38rem 0.55rem;
+  position: absolute;
+  text-transform: uppercase;
+  top: 0.75rem;
+  z-index: 2;
 }
