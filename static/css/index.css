@@ -2295,3 +2295,72 @@ body {
   margin: 0.3rem auto 1.15rem;
   max-width: 980px;
 }
+
+/* Interactive attention map visualization */
+.interactive-attention-figure {
+  margin-top: 1rem;
+}
+
+.attention-click-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+  align-items: start;
+}
+
+.attention-panel {
+  appearance: none;
+  background: #fff;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  box-shadow: none;
+  cursor: pointer;
+  margin: 0;
+  overflow: hidden;
+  padding: 0.45rem;
+  transition: background 0.16s ease, border-color 0.16s ease, box-shadow 0.16s ease, transform 0.16s ease;
+}
+
+.attention-panel img {
+  display: block;
+  width: 100%;
+  height: auto;
+  pointer-events: none;
+}
+
+.attention-panel:hover,
+.attention-panel:focus-visible {
+  background: rgba(31, 76, 124, 0.04);
+  border-color: rgba(31, 76, 124, 0.65);
+  box-shadow: 0 8px 22px rgba(31, 76, 124, 0.12);
+  outline: none;
+  transform: translateY(-2px);
+}
+
+.attention-panel.is-active {
+  background: rgba(31, 76, 124, 0.07);
+  border-color: rgba(31, 76, 124, 0.96);
+  box-shadow: 0 0 0 4px rgba(31, 76, 124, 0.12), 0 12px 28px rgba(31, 76, 124, 0.16);
+  transform: translateY(-2px);
+}
+
+.attention-info-panel {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.attention-info-panel h3 {
+  margin-bottom: 0.35rem;
+}
+
+@media screen and (max-width: 1024px) {
+  .attention-click-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .attention-click-grid {
+    grid-template-columns: 1fr;
+  }
+}
