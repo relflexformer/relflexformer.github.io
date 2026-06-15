@@ -110,6 +110,128 @@
 </section>
 
 
+<section class="section">
+  <div class="container is-max-widescreen">
+
+    <div class="rows is-centered">
+      <div class="row is-full-width">
+
+        <h2 class="title is-3">Qualitative Analysis</h2>
+
+        <!-- Attention heatmap visualization -->
+        <h3 class="title is-4 mobile-deployment-title">Attention Heatmap Visualization</h3>
+
+        <div class="overview-click-note">
+          <span class="icon"><i class="fas fa-mouse-pointer"></i></span>
+          <span>Click each panel to highlight it and read what it shows.</span>
+        </div>
+
+        <figure class="paper-figure-block interactive-attention-figure">
+
+          <div class="attention-click-grid">
+
+            <button
+              class="attention-panel is-active"
+              type="button"
+              aria-label="Input query point"
+              data-title="Input: query point"
+              data-description="The input scene with the selected query point marked by a green star. The following panels visualize how each attention mechanism distributes attention relative to this same query location."
+            >
+              <img
+                src="media/figures/attention_input.png?v=1"
+                alt="Input image with query point"
+              />
+            </button>
+
+            <button
+              class="attention-panel"
+              type="button"
+              aria-label="Dense Softmax attention map"
+              data-title="Dense Softmax"
+              data-description="Dense Softmax attention computes full pairwise attention over all tokens. While it can capture global interactions, its attention pattern is relatively diffuse and its quadratic complexity becomes expensive for long sequences."
+            >
+              <img
+                src="media/figures/attention_dense_transformer.png?v=1"
+                alt="Dense Softmax attention map"
+              />
+            </button>
+
+            <button
+              class="attention-panel"
+              type="button"
+              aria-label="Performer attention map"
+              data-title="Performer"
+              data-description="Performer provides a linear-time approximation to softmax attention. The resulting attention pattern is efficient, but tends to be more spread out and less spatially selective around the query point."
+            >
+              <img
+                src="media/figures/attention_performer.png?v=1"
+                alt="Performer attention map"
+              />
+            </button>
+
+            <button
+              class="attention-panel attention-panel-ours"
+              type="button"
+              aria-label="RelFlexformer attention map"
+              data-title="RelFlexformer"
+              data-description="RelFlexformer produces a more localized and structured attention response around the query point. The spatial modulation encourages stronger attention to geometrically relevant nearby regions while preserving efficient computation."
+            >
+              <span class="ours-badge">Ours</span>
+              <img
+                src="media/figures/attention_relflexformer.png?v=1"
+                alt="RelFlexformer attention map"
+              />
+            </button>
+
+          </div>
+
+          <div class="overview-info-panel attention-info-panel" id="attention-info-panel" aria-live="polite">
+            <h3>Input: query point</h3>
+            <p>
+              The input scene with the selected query point marked by a green star. The following panels visualize
+              how each attention mechanism distributes attention relative to this same query location.
+            </p>
+          </div>
+
+        </figure>
+
+
+        <!-- Distance-attention correlation -->
+        <h3 class="title is-4 qualitative-subtitle">Distance-Attention Correlation</h3>
+
+        <figure class="paper-figure-block single-paper-figure distance-attention-figure">
+          <img
+            src="media/figures/distance_attention_correlation.png?v=1"
+            alt="Distance-attention correlation visualization"
+          />
+
+          <figcaption class="mask-figure-caption distance-attention-caption">
+            <div class="caption-label">Analysis</div>
+
+            <div class="caption-body">
+              <p>
+                <strong>Distance-attention correlation.</strong>
+                The left panel shows the spatial distance from the selected query point, while the middle and right panels visualize
+                the corresponding attention values for Performer and RelFlexformer.
+              </p>
+
+              <p>
+                Compared with Performer, RelFlexformer shows a stronger positive relationship between spatial distance structure and attention assignment,
+                suggesting that its RPE-modulated attention better reflects geometric organization around the query point.
+              </p>
+            </div>
+          </figcaption>
+        </figure>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+
+  
 <section class="section algorithm-section">
   <div class="container is-max-widescreen">
     <h2 class="title is-3">NU-FFT for RPE-modulated Attention</h2>
@@ -323,88 +445,7 @@
     <div class="rows is-centered">
       <div class="row is-full-width">
 
-        <h2 class="title is-3">Qualitative Analysis</h2>
-
-        <!-- Attention heatmap visualization -->
-        <h3 class="title is-4 mobile-deployment-title">Attention Heatmap Visualization</h3>
-
-        <div class="overview-click-note">
-          <span class="icon"><i class="fas fa-mouse-pointer"></i></span>
-          <span>Click each panel to highlight it and read what it shows.</span>
-        </div>
-
-        <figure class="paper-figure-block interactive-attention-figure">
-
-          <div class="attention-click-grid">
-
-            <button
-              class="attention-panel is-active"
-              type="button"
-              aria-label="Input query point"
-              data-title="Input: query point"
-              data-description="The input scene with the selected query point marked by a green star. The following panels visualize how each attention mechanism distributes attention relative to this same query location."
-            >
-              <img
-                src="media/figures/attention_input.png?v=1"
-                alt="Input image with query point"
-              />
-            </button>
-
-            <button
-              class="attention-panel"
-              type="button"
-              aria-label="Dense Softmax attention map"
-              data-title="Dense Softmax"
-              data-description="Dense Softmax attention computes full pairwise attention over all tokens. While it can capture global interactions, its attention pattern is relatively diffuse and its quadratic complexity becomes expensive for long sequences."
-            >
-              <img
-                src="media/figures/attention_dense_transformer.png?v=1"
-                alt="Dense Softmax attention map"
-              />
-            </button>
-
-            <button
-              class="attention-panel"
-              type="button"
-              aria-label="Performer attention map"
-              data-title="Performer"
-              data-description="Performer provides a linear-time approximation to softmax attention. The resulting attention pattern is efficient, but tends to be more spread out and less spatially selective around the query point."
-            >
-              <img
-                src="media/figures/attention_performer.png?v=1"
-                alt="Performer attention map"
-              />
-            </button>
-
-            <button
-              class="attention-panel attention-panel-ours"
-              type="button"
-              aria-label="RelFlexformer attention map"
-              data-title="RelFlexformer"
-              data-description="RelFlexformer produces a more localized and structured attention response around the query point. The spatial modulation encourages stronger attention to geometrically relevant nearby regions while preserving efficient computation."
-            >
-              <span class="ours-badge">Ours</span>
-              <img
-                src="media/figures/attention_relflexformer.png?v=1"
-                alt="RelFlexformer attention map"
-              />
-            </button>
-
-          </div>
-
-          <div class="overview-info-panel attention-info-panel" id="attention-info-panel" aria-live="polite">
-            <h3>Input: query point</h3>
-            <p>
-              The input scene with the selected query point marked by a green star. The following panels visualize
-              how each attention mechanism distributes attention relative to this same query location.
-            </p>
-          </div>
-
-        </figure>
-
-
-        <!-- Distance-attention correlation -->
-        <h3 class="title is-4 qualitative-subtitle">Distance-Attention Correlation</h3>
+        <h2 class="title is-3">Distance-Attention Correlation</h2>
 
         <figure class="paper-figure-block single-paper-figure distance-attention-figure">
           <img
@@ -429,12 +470,11 @@
             </div>
           </figcaption>
         </figure>
-
       </div>
     </div>
-
   </div>
 </section>
+
   
   
 <section class="section performance-section">
