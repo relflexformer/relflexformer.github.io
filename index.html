@@ -7,7 +7,6 @@
   <meta name="keywords" content="Efficient Transformer, Relative Positional Encoding, Kernel Feature Map">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>RelFlexformer</title>
-
   <script>
     window.MathJax = {
       tex: {
@@ -18,922 +17,815 @@
     };
   </script>
   <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
-
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
         rel="stylesheet">
-
   <link rel="stylesheet" href="./static/css/bulma.min.css">
   <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
   <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
   <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
   <link rel="stylesheet"
         href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
-  <link rel="stylesheet" href="./static/css/index.css?v=41">
-
+  <link rel="stylesheet" href="./static/css/index.css?v=42">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script defer src="./static/js/fontawesome.all.min.js"></script>
   <script src="./static/js/bulma-carousel.min.js"></script>
   <script src="./static/js/bulma-slider.min.js"></script>
-  <script src="./static/js/index.js?v=13"></script>
+  <script src="./static/js/index.js?v=14"></script>
 </head>
-
+<body>
 <section class="hero">
   <div class="hero-body">
     <div class="container is-fullhd">
       <div class="columns is-centered">
         <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title">RelFlexformer: Efficient Attention 3D-Transformers<br>for Integrable Relative Positional Encodings</h1>
-          <div class="publication-author-list">
-            <div class="author-row">
-              <span>Byeongchan Kim<sup>1</sup></span>
-              <span>Arijit Sehanobish<sup>2</sup></span>
-              <span>Avinava Dubey<sup>3</sup></span>
-            </div>
-            <div class="author-row">
-              <span>Min-hwan Oh<sup>1</sup></span>
-              <span>Krzysztof Choromanski<sup>4,5</sup></span>
-            </div>
-            <div class="affiliation-row">
-              <span><sup>1</sup>Seoul National University</span>
-              <span><sup>2</sup>Independent</span>
-              <span><sup>3</sup>Google Research</span>
-              <span><sup>4</sup>Google DeepMind</span>
-              <span><sup>5</sup>Columbia University</span>
-            </div>
-          </div>
-          <div class="is-size-5 publication-authors">
-            Preprint
-          </div>
-          <div class="publication-link-row">
-            <a class="publication-link-button" href="https://arxiv.org/pdf/2605.10706">
-              <span class="icon"><i class="ai ai-arxiv"></i></span>
-              <span>arXiv</span>
-            </a>
-            <a class="publication-link-button" href="https://github.com/97byeongchan/RelFlexformer">
-              <span class="icon"><i class="fas fa-code"></i></span>
-              <span>Code</span>
-            </a>
-            <!-- <a class="publication-link-button" href="https://x.com/RuohanZhang76/status/2062277853564272854" target="_blank" rel="noopener noreferrer">
-              <span class="icon publication-x-icon">X</span>
-              <span>tl;dr</span>
-            </a>
-            <a class="publication-link-button" href="media/papers/stereopolicy-paper.pdf">
-              <span class="icon"><i class="fas fa-file-pdf"></i></span>
-              <span>Paper</span>
-            </a>
-            <a class="publication-link-button" href="media/papers/stereopolicy-appendix.pdf">
-              <span class="icon"><i class="fas fa-file-pdf"></i></span>
-              <span>Appendix</span>
-            </a> -->
-          </div>
+      <h1 class="title is-1 publication-title">
+        RelFlexformer: Efficient Attention 3D-Transformers<br>
+        for Integrable Relative Positional Encodings
+      </h1>
+      <div class="publication-author-list">
+        <div class="author-row">
+          <span>Byeongchan Kim<sup>1</sup></span>
+          <span>Arijit Sehanobish<sup>2</sup></span>
+          <span>Avinava Dubey<sup>3</sup></span>
         </div>
+        <div class="author-row">
+          <span>Min-hwan Oh<sup>1</sup></span>
+          <span>Krzysztof Choromanski<sup>4,5</sup></span>
+        </div>
+        <div class="affiliation-row">
+          <span><sup>1</sup>Seoul National University</span>
+          <span><sup>2</sup>Independent</span>
+          <span><sup>3</sup>Google Research</span>
+          <span><sup>4</sup>Google DeepMind</span>
+          <span><sup>5</sup>Columbia University</span>
+        </div>
+      </div>
+      <div class="is-size-5 publication-authors">
+        Preprint
+      </div>
+      <div class="publication-link-row">
+        <a class="publication-link-button" href="https://arxiv.org/pdf/2605.10706">
+          <span class="icon"><i class="ai ai-arxiv"></i></span>
+          <span>arXiv</span>
+        </a>
+        <a class="publication-link-button" href="https://github.com/97byeongchan/RelFlexformer">
+          <span class="icon"><i class="fas fa-code"></i></span>
+          <span>Code</span>
+        </a>
       </div>
     </div>
   </div>
-</section>
-
-  
-<section class="hero teaser">
-  <div class="container is-max-widescreen">
-    <!-- Abstract. -->
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Abstract</h2>
-        <div class="content has-text-justified">
-          <p>
-            We present a new class of efficient attention mechanisms applying universal 3D Relative Positional Encoding (RPE) methods given by arbitrary integrable modulation functions \(f\). They lead to the new class of 3D-Transformer models, called <strong>RelFlexformers</strong>, flexibly integrating those RPEs, and characterized by the \(O(L \log L)\) time complexity of the attention computation for the $L$-length input sequences. RelFlexformers builds on the theory of the Non-Uniform Fourier Transform (NU-FFT), naturally generalizing several existing efficient RPE-attention methods from structured settings with tokens homogeneously embedded in unweighted grids into general non-structured heterogeneous scenarios, where tokens' positions are arbitrarily distributed in the corresponding 3D spaces. As such, RelFlexformers can be applied in particular to model point clouds. Our extensive empirical evaluation on a large portfolio of 3D datasets confirms quality improvements provided by the NU-FFT-driven attention modulation techniques in the RelFlexformers.
-          </p>
-        </div>
-      </div>
-    </div>
+</div>
   </div>
 </section>
-
-
-<section class="section">
+<section class="section hook-section">
   <div class="container is-max-widescreen">
-
-    <div class="rows is-centered">
-      <div class="row is-full-width">
-
-        <h2 class="title is-3">Qualitative Analysis</h2>
-
-        <!-- Attention heatmap visualization -->
-        <h3 class="title is-4 mobile-deployment-title">Attention Heatmap Visualization</h3>
-
-        <div class="overview-click-note">
-          <span class="icon"><i class="fas fa-mouse-pointer"></i></span>
-          <span>Click each panel to highlight it and read what it shows.</span>
-        </div>
-
-        <figure class="paper-figure-block interactive-attention-figure">
-
-          <div class="attention-click-grid">
-
-            <button
-              class="attention-panel is-active"
-              type="button"
-              aria-label="Input query point"
-              data-title="Input: query point"
-              data-description="The input scene with the selected query point marked by a green star. The following panels visualize how each attention mechanism distributes attention relative to this same query location."
-            >
-              <img
-                src="media/figures/attention_input.png?v=1"
-                alt="Input image with query point"
-              />
-            </button>
-
-            <button
-              class="attention-panel"
-              type="button"
-              aria-label="Dense Softmax attention map"
-              data-title="Dense Softmax"
-              data-description="Dense Softmax attention computes full pairwise attention over all tokens. While it can capture global interactions, its attention pattern is relatively diffuse and its quadratic complexity becomes expensive for long sequences."
-            >
-              <img
-                src="media/figures/attention_dense_transformer.png?v=1"
-                alt="Dense Softmax attention map"
-              />
-            </button>
-
-            <button
-              class="attention-panel"
-              type="button"
-              aria-label="Performer attention map"
-              data-title="Performer"
-              data-description="Performer provides a linear-time approximation to softmax attention. The resulting attention pattern is efficient, but tends to be more spread out and less spatially selective around the query point."
-            >
-              <img
-                src="media/figures/attention_performer.png?v=1"
-                alt="Performer attention map"
-              />
-            </button>
-
-            <button
-              class="attention-panel attention-panel-ours"
-              type="button"
-              aria-label="RelFlexformer attention map"
-              data-title="RelFlexformer"
-              data-description="RelFlexformer produces a more localized and structured attention response around the query point. The spatial modulation encourages stronger attention to geometrically relevant nearby regions while preserving efficient computation."
-            >
-              <span class="ours-badge">Ours</span>
-              <img
-                src="media/figures/attention_relflexformer.png?v=1"
-                alt="RelFlexformer attention map"
-              />
-            </button>
-
-          </div>
-
-          <div class="overview-info-panel attention-info-panel" id="attention-info-panel" aria-live="polite">
-            <h3>Input: query point</h3>
-            <p>
-              The input scene with the selected query point marked by a green star. The following panels visualize
-              how each attention mechanism distributes attention relative to this same query location.
-            </p>
-          </div>
-
-        </figure>
-
-
-        <!-- Distance-attention correlation -->
-        <h3 class="title is-4 qualitative-subtitle">Distance-Attention Correlation</h3>
-
-        <figure class="paper-figure-block single-paper-figure distance-attention-figure">
+<div class="columns is-centered">
+  <div class="column is-full">
+    <h2 class="title is-3 has-text-centered">Geometry-Aware Attention at a Glance</h2>
+    <p class="hook-summary">
+      <strong>
+        RelFlexformer turns efficient attention from a diffuse approximation into spatially structured,
+        geometry-aware attention for 3D data.
+      </strong>
+    </p>
+    <div class="overview-click-note">
+      <span class="icon"><i class="fas fa-mouse-pointer"></i></span>
+      <span>Click each panel to highlight it and read what it shows.</span>
+    </div>
+    <figure class="paper-figure-block interactive-attention-figure">
+      <div class="attention-click-grid">
+        <button
+          class="attention-panel is-active"
+          type="button"
+          aria-label="Input query point"
+          data-title="Input: query point"
+          data-description="The input scene with the selected query point marked by a green star. The following panels visualize how each attention mechanism distributes attention relative to this same query location."
+        >
           <img
-            src="media/figures/distance_attention_correlation.png?v=1"
-            alt="Distance-attention correlation visualization"
+            src="media/figures/attention_input.png?v=1"
+            alt="Input image with query point"
           />
-
-          <figcaption class="mask-figure-caption distance-attention-caption">
-            <div class="caption-label">Analysis</div>
-
-            <div class="caption-body">
-              <p>
-                <strong>Distance-attention correlation.</strong>
-                The left panel shows the spatial distance from the selected query point, while the middle and right panels visualize
-                the corresponding attention values for Performer and RelFlexformer.
-              </p>
-
-              <p>
-                Compared with Performer, RelFlexformer shows a stronger positive relationship between spatial distance structure and attention assignment,
-                suggesting that its RPE-modulated attention better reflects geometric organization around the query point.
-              </p>
-            </div>
-          </figcaption>
-        </figure>
-
+        </button>
+        <button
+          class="attention-panel"
+          type="button"
+          aria-label="Dense Softmax attention map"
+          data-title="Dense Softmax"
+          data-description="Dense Softmax attention computes full pairwise attention over all tokens. While it can capture global interactions, its quadratic complexity becomes expensive for long 3D token sequences."
+        >
+          <img
+            src="media/figures/attention_dense_transformer.png?v=1"
+            alt="Dense Softmax attention map"
+          />
+        </button>
+        <button
+          class="attention-panel"
+          type="button"
+          aria-label="Performer attention map"
+          data-title="Performer"
+          data-description="Performer provides a linear-time approximation to softmax attention. It is scalable, but its attention pattern can become more diffuse and less spatially selective around the query point."
+        >
+          <img
+            src="media/figures/attention_performer.png?v=1"
+            alt="Performer attention map"
+          />
+        </button>
+        <button
+          class="attention-panel attention-panel-ours"
+          type="button"
+          aria-label="RelFlexformer attention map"
+          data-title="RelFlexformer"
+          data-description="RelFlexformer produces a more localized and structured attention response around the query point. Its RPE-modulated attention encourages stronger interactions with geometrically relevant nearby regions."
+        >
+          <span class="ours-badge">Ours</span>
+          <img
+            src="media/figures/attention_relflexformer.png?v=1"
+            alt="RelFlexformer attention map"
+          />
+        </button>
       </div>
-    </div>
-
+      <div class="overview-info-panel attention-info-panel" id="attention-info-panel" aria-live="polite">
+        <h3>Input: query point</h3>
+        <p>
+          The input scene with the selected query point marked by a green star. The following panels visualize
+          how each attention mechanism distributes attention relative to this same query location.
+        </p>
+      </div>
+    </figure>
+  </div>
+</div>
   </div>
 </section>
-
-
-
-  
-<section class="section algorithm-section">
+<section class="hero teaser abstract-section">
   <div class="container is-max-widescreen">
-    <h2 class="title is-3">NU-FFT for RPE-modulated Attention</h2>
-
-    <div class="content has-text-justified algorithm-intro">
+<div class="columns is-centered has-text-centered">
+  <div class="column is-four-fifths">
+    <div class="tldr-box">
+      <strong>TL;DR.</strong>
+      RelFlexformer injects flexible 3D relative positional encodings into efficient attention using
+      NU-FFT-based FastMult, enabling geometry-aware attention with \(O(L \log L)\) complexity.
+    </div>
+    <h2 class="title is-3">Abstract</h2>
+    <div class="content has-text-justified">
       <p>
-        <strong>We introduce our RPE-attention mechanism, starting from the definition of masked attention.</strong>
+        We present a new class of efficient attention mechanisms applying universal 3D Relative Positional Encoding (RPE) methods given by arbitrary integrable modulation functions \(f\). They lead to the new class of 3D-Transformer models, called <strong>RelFlexformers</strong>, flexibly integrating those RPEs, and characterized by the \(O(L \log L)\) time complexity of the attention computation for the \(L\)-length input sequences. RelFlexformers builds on the theory of the Non-Uniform Fourier Transform (NU-FFT), naturally generalizing several existing efficient RPE-attention methods from structured settings with tokens homogeneously embedded in unweighted grids into general non-structured heterogeneous scenarios, where tokens' positions are arbitrarily distributed in the corresponding 3D spaces. As such, RelFlexformers can be applied in particular to model point clouds. Our extensive empirical evaluation on a large portfolio of 3D datasets confirms quality improvements provided by the NU-FFT-driven attention modulation techniques in the RelFlexformers.
       </p>
     </div>
-    
-    <div class="algorithm-box">
-      <div class="algorithm-title">
-        <strong>Algorithm 1:</strong>
-        <span>\(\mathrm{FastMult}_{\mathbf{M}}\): NU-FFT Mask Multiplication</span>
-      </div>
-
-      <div class="algorithm-content">
-        <p>
-          <strong>Input:</strong>
-          Input vector \(\mathbf{u} \in \mathbb{R}^{L}\), token coordinates
-          \(\{\mathbf{r}_{i}\}_{i=1}^{L} \in \mathbb{R}^{d}\), spatial modulation function \(f\),
-          quadrature samples \(\{\xi_{s}\}_{s=1}^{S}\) and coefficients \(\{a_{s}\}_{s=1}^{S}\).
-        </p>
-
-        <p>
-          <strong>Output:</strong>
-          Vector \(\mathbf{w} \in \mathbb{R}^{L}\) approximating \(\mathbf{M}\mathbf{u}\).
-        </p>
-
-        <ol class="algorithm-steps">
-          <li>
-            <p>
-              Compute the Fourier Transform of the point cloud signal at sampled frequencies
-              \(s \in \{1, \dots, S\}\) using the forward Non-Uniform FFT in \(O(L \log L)\) time:
-            </p>
-            <div class="algorithm-equation">
-              \[
-                \mathcal{F}_{P}(\xi_{s})
-                =
-                \sum_{l=1}^{L}
-                u_{l}
-                \exp(-2\pi i \xi_{s}^{\top} \mathbf{r}_{l}).
-              \]
-            </div>
-          </li>
-
-          <li>
-            <p>
-              Calculate the modulated coefficients for each frequency sample using the spatial mask's
-              Fourier Transform:
-            </p>
-            <div class="algorithm-equation">
-              \[
-                b_{s}
-                =
-                a_{s}
-                \mathcal{F}_{f}(\xi_{s})
-                \mathcal{F}_{P}(\xi_{s}).
-              \]
-            </div>
-          </li>
-
-          <li>
-            <p>
-              Output the final evaluated function at the point coordinates
-              \(i \in \{1, \dots, L\}\) using the inverse Non-Uniform FFT in \(O(L \log L)\) time:
-            </p>
-            <div class="algorithm-equation">
-              \[
-                \mathbf{w}_{i}
-                =
-                \sum_{s=1}^{S}
-                b_{s}
-                \exp(2\pi i \xi_{s}^{\top} \mathbf{r}_{i}).
-              \]
-            </div>
-          </li>
-        </ol>
-      </div>
-    </div>
-
+  </div>
+</div>
   </div>
 </section>
-
-      
-      
+<section class="section motivation-section">
+  <div class="container is-max-widescreen">
+<h2 class="title is-3">Why FastMult?</h2>
+<p class="motivation-lead">
+  Dense attention can model rich spatial interactions, but it is expensive. Efficient attention is scalable,
+  but can lose sharp spatial structure. RelFlexformer aims to get both: geometry-aware attention and scalable computation.
+</p>
+<div class="motivation-grid">
+  <div class="motivation-card">
+    <h3>3D RPE is a useful inductive bias</h3>
+    <p>
+      In point clouds and 3D scenes, token positions carry geometric meaning.
+      A spatial modulation function \(f(\mathbf{r}_i - \mathbf{r}_j)\) can bias attention toward geometrically relevant interactions.
+    </p>
+  </div>
+  <div class="motivation-card">
+    <h3>Explicit RPE masks are quadratic</h3>
+    <p>
+      Directly forming the full mask matrix
+      \(\mathbf{M}_{ij}=f(\mathbf{r}_i-\mathbf{r}_j)\)
+      requires an \(L \times L\) matrix, which becomes expensive for long 3D token sequences.
+    </p>
+  </div>
+  <div class="motivation-card">
+    <h3>Fast mask multiplication is the key</h3>
+    <p>
+      RelFlexformer avoids explicitly constructing \(\mathbf{M}\). Instead, it applies the mask implicitly through
+      NU-FFT-based FastMult, reducing the attention modulation cost to \(O(L \log L)\).
+    </p>
+  </div>
+</div>
+<div class="motivation-takeaway">
+  <strong>Key idea:</strong>
+  do not build the full \(L \times L\) RPE mask; compute its action \(\mathbf{M}\mathbf{u}\) efficiently.
+</div>
+  </div>
+</section>
+<section class="section algorithm-section">
+  <div class="container is-max-widescreen">
+<h2 class="title is-3">NU-FFT for RPE-modulated Attention</h2>
+<div class="content has-text-justified algorithm-intro">
+  <p>
+    <strong>
+      Instead of explicitly constructing the full RPE mask, FastMult approximates the masked matrix-vector product through forward and inverse NU-FFT operations.
+    </strong>
+  </p>
+</div>
+<div class="algorithm-box">
+  <div class="algorithm-title">
+    <strong>Algorithm 1:</strong>
+    <span>\(\mathrm{FastMult}_{\mathbf{M}}\): NU-FFT Mask Multiplication</span>
+  </div>
+  <div class="algorithm-content">
+    <p>
+      <strong>Input:</strong>
+      Input vector \(\mathbf{u} \in \mathbb{R}^{L}\), token coordinates
+      \(\{\mathbf{r}_{i}\}_{i=1}^{L} \in \mathbb{R}^{d}\), spatial modulation function \(f\),
+      quadrature samples \(\{\xi_{s}\}_{s=1}^{S}\) and coefficients \(\{a_{s}\}_{s=1}^{S}\).
+    </p>
+    <p>
+      <strong>Output:</strong>
+      Vector \(\mathbf{w} \in \mathbb{R}^{L}\) approximating \(\mathbf{M}\mathbf{u}\).
+    </p>
+    <ol class="algorithm-steps">
+      <li>
+        <p>
+          Compute the Fourier Transform of the point cloud signal at sampled frequencies
+          \(s \in \{1, \dots, S\}\) using the forward Non-Uniform FFT in \(O(L \log L)\) time:
+        </p>
+        <div class="algorithm-equation">
+          \[
+            \mathcal{F}_{P}(\xi_{s})
+            =
+            \sum_{l=1}^{L}
+            u_{l}
+            \exp(-2\pi i \xi_{s}^{\top} \mathbf{r}_{l}).
+          \]
+        </div>
+      </li>
+      <li>
+        <p>
+          Calculate the modulated coefficients for each frequency sample using the spatial mask's
+          Fourier Transform:
+        </p>
+        <div class="algorithm-equation">
+          \[
+            b_{s}
+            =
+            a_{s}
+            \mathcal{F}_{f}(\xi_{s})
+            \mathcal{F}_{P}(\xi_{s}).
+          \]
+        </div>
+      </li>
+      <li>
+        <p>
+          Output the final evaluated function at the point coordinates
+          \(i \in \{1, \dots, L\}\) using the inverse Non-Uniform FFT in \(O(L \log L)\) time:
+        </p>
+        <div class="algorithm-equation">
+          \[
+            \mathbf{w}_{i}
+            =
+            \sum_{s=1}^{S}
+            b_{s}
+            \exp(2\pi i \xi_{s}^{\top} \mathbf{r}_{i}).
+          \]
+        </div>
+      </li>
+    </ol>
+  </div>
+</div>
+  </div>
+</section>
 <section class="section">
   <div class="container is-max-widescreen">
-
-    <div class="rows is-centered">
-      <div class="row is-full-width">
-        <h2 class="title is-3">FastMult Analysis</h2>
-        <div class="content has-text-justified">
+<div class="rows is-centered">
+  <div class="row is-full-width">
+    <h2 class="title is-3">FastMult Analysis</h2>
+    <div class="content has-text-justified">
+      <p>
+        <strong>Execution time as a function of sequence length and approximation accuracy of our FastMult algorithm.</strong>
+      </p>
+    </div>
+    <div class="overview-click-note">
+      <span class="icon"><i class="fas fa-mouse-pointer"></i></span>
+      <span>Click each panel to highlight it and read what it shows.</span>
+    </div>
+    <figure class="paper-figure-block interactive-fastmult-figure">
+      <div class="paper-subfigure-grid fastmult-click-grid">
+        <button
+          class="paper-subfigure fastmult-panel is-active"
+          type="button"
+          aria-label="Left panel: Transformer variants"
+          data-title="Left: Transformer variants"
+          data-description="Performance comparison of Transformer, Performer, and RelFlexformer models as sequence length increases. The standard Transformer runs out of memory for sequence lengths L ≥ 16k, while RelFlexformer scales to longer sequences."
+        >
+          <img
+            src="media/figures/fastmult-left.png?v=1"
+            alt="Performance comparison of Transformer variants"
+          />
+        </button>
+        <button
+          class="paper-subfigure fastmult-panel"
+          type="button"
+          aria-label="Middle panel: Naive versus FastMult"
+          data-title="Middle: Naive vs. FastMult"
+          data-description="Execution time comparison between the naive multiplication approach and FastMult. FastMult is substantially faster, especially as the sequence length grows."
+        >
+          <img
+            src="media/figures/fastmult-middle.png?v=1"
+            alt="Performance comparison of Naive versus FastMult"
+          />
+        </button>
+        <button
+          class="paper-subfigure fastmult-panel"
+          type="button"
+          aria-label="Right panel: Relative error versus quadrature size"
+          data-title="Right: Accuracy of FastMult"
+          data-description="Relative error of stochastic quadrature approximation to the exact mask matrix-vector product as a function of quadrature size S. The error decreases as the quadrature size increases, following the expected O(1/√S) behavior."
+        >
+          <img
+            src="media/figures/fastmult-right.png?v=1"
+            alt="Relative error versus quadrature size"
+          />
+        </button>
+      </div>
+      <div class="overview-info-panel fastmult-info-panel" id="fastmult-info-panel" aria-live="polite">
+        <h3>Left: Transformer variants</h3>
+        <p>
+          Performance comparison of Transformer, Performer, and RelFlexformer models as sequence length increases.
+          The standard Transformer runs out of memory for sequence lengths L ≥ 16k, while RelFlexformer scales to longer sequences.
+        </p>
+      </div>
+    </figure>
+  </div>
+</div>
+  </div>
+</section>
+<section class="section">
+  <div class="container is-max-widescreen">
+<div class="rows is-centered">
+  <div class="row is-full-width">
+    <h2 class="title is-3">Mask Behavior Analysis</h2>
+    <div class="content has-text-justified mask-analysis-intro">
+      <p>
+        <strong>RelFlexformer uses flexible spatial modulation functions to control how token interactions decay with distance.</strong>
+        We visualize the behavior of the proposed kernels and compare them with standard Heat/RBF and Laplace kernels.
+      </p>
+    </div>
+    <figure class="paper-figure-block single-paper-figure mask-behavior-figure">
+      <img
+        src="media/figures/kernel_comparison.png?v=1"
+        alt="RelFlexformer mask behavior analysis"
+      />
+      <figcaption class="mask-figure-caption">
+        <div class="caption-label">Analysis</div>
+        <div class="caption-body">
           <p>
-            <strong>Execution time (ms) as a function of sequence length and accuracy of our FastMult algorithm.</strong>
+            <strong><em>RelFlexformer</em> mask behavior analysis.</strong>
+            As the Euclidean distance between points increases, the mask values decay smoothly,
+            showing that the proposed modulation functions preserve spatial locality.
+          </p>
+          <p>
+            The tight scatter around the reference Heat/RBF and Laplace curves suggests stable
+            kernel behavior across varying spatial scales.
           </p>
         </div>
-
-        <div class="overview-click-note">
-          <span class="icon"><i class="fas fa-mouse-pointer"></i></span>
-          <span>Click each panel to highlight it and read what it shows.</span>
-        </div>
-
-        <figure class="paper-figure-block interactive-fastmult-figure">
-
-          <div class="paper-subfigure-grid fastmult-click-grid">
-
-            <button
-              class="paper-subfigure fastmult-panel is-active"
-              type="button"
-              aria-label="Left panel: Transformer variants"
-              data-title="Left: Transformer variants"
-              data-description="Performance comparison of Transformer, Performer, and RelFlexformer models as sequence length increases. The standard Transformer runs out of memory for sequence lengths L ≥ 16k, while RelFlexformer scales to longer sequences."
-            >
-              <img 
-                src="media/figures/fastmult-left.png?v=1" 
-                alt="Performance comparison of Transformer variants"
-              />
-            </button>
-
-            <button
-              class="paper-subfigure fastmult-panel"
-              type="button"
-              aria-label="Middle panel: Naive versus FastMult"
-              data-title="Middle: Naive vs. FastMult"
-              data-description="Execution time comparison between the naive multiplication approach and FastMult. FastMult is substantially faster, especially as the sequence length grows."
-            >
-              <img 
-                src="media/figures/fastmult-middle.png?v=1" 
-                alt="Performance comparison of Naive versus FastMult"
-              />
-            </button>
-
-            <button
-              class="paper-subfigure fastmult-panel"
-              type="button"
-              aria-label="Right panel: Relative error versus quadrature size"
-              data-title="Right: Accuracy of FastMult"
-              data-description="Relative error of stochastic quadrature approximation to the exact mask matrix-vector product as a function of quadrature size S. The error decreases as the quadrature size increases, following the expected O(1/√S) behavior."
-            >
-              <img 
-                src="media/figures/fastmult-right.png?v=1" 
-                alt="Relative error versus quadrature size"
-              />
-            </button>
-
-          </div>
-
-          <div class="overview-info-panel fastmult-info-panel" id="fastmult-info-panel" aria-live="polite">
-            <h3>Left: Transformer variants</h3>
-            <p>
-              Performance comparison of Transformer, Performer, and RelFlexformer models as sequence length increases.
-              The standard Transformer runs out of memory for sequence lengths L ≥ 16k, while RelFlexformer scales to longer sequences.
-            </p>
-          </div>
-        </figure>
-      </div>
-    </div>
-
+      </figcaption>
+    </figure>
+  </div>
+</div>
   </div>
 </section>
-
-
 <section class="section">
   <div class="container is-max-widescreen">
-
-    <div class="rows is-centered">
-      <div class="row is-full-width">
-        <h2 class="title is-3">Mask Behavior Analysis</h2>
-
-        <div class="content has-text-justified mask-analysis-intro">
+<div class="rows is-centered">
+  <div class="row is-full-width">
+    <h2 class="title is-3">Distance-Attention Correlation</h2>
+    <div class="content has-text-justified">
+      <p>
+        <strong>We further analyze how attention strength changes with spatial distance from the query point.</strong>
+        This provides a complementary view of the heatmap visualization above.
+      </p>
+    </div>
+    <figure class="paper-figure-block single-paper-figure distance-attention-figure">
+      <img
+        src="media/figures/distance_attention_correlation.png?v=1"
+        alt="Distance-attention correlation visualization"
+      />
+      <figcaption class="mask-figure-caption distance-attention-caption">
+        <div class="caption-label">Analysis</div>
+        <div class="caption-body">
           <p>
-            <strong>RelFlexformer uses flexible spatial modulation functions to control how token interactions decay with distance.</strong>
-            We visualize the behavior of the proposed kernels and compare them with standard Heat/RBF and Laplace kernels.
+            <strong>Distance-attention correlation.</strong>
+            The left panel shows the spatial distance from the selected query point, while the middle and right panels visualize
+            the corresponding attention values for Performer and RelFlexformer.
+          </p>
+          <p>
+            Compared with Performer, RelFlexformer shows a stronger positive relationship between spatial distance structure and attention assignment,
+            suggesting that its RPE-modulated attention better reflects geometric organization around the query point.
           </p>
         </div>
-
-        <figure class="paper-figure-block single-paper-figure mask-behavior-figure">
-          <img
-            src="media/figures/kernel_comparison.png?v=1"
-            alt="RelFlexformer mask behavior analysis"
-          />
-
-          <figcaption class="mask-figure-caption">
-            <div class="caption-label">ANALYSIS</div>
-
-            <div class="caption-body">
-              <p>
-                <strong><em>RelFlexformer</em> mask behavior analysis.</strong>
-                As the Euclidean distance between points increases, the mask values decay smoothly,
-                showing that the proposed modulation functions preserve spatial locality.
-              </p>
-
-              <p>
-                The tight scatter around the reference Heat/RBF and Laplace curves suggests stable
-                kernel behavior across varying spatial scales.
-              </p>
-            </div>
-          </figcaption>
-        </figure>
-      </div>
-    </div>
-
+      </figcaption>
+    </figure>
+  </div>
+</div>
   </div>
 </section>
-
-
-<section class="section">
-  <div class="container is-max-widescreen">
-
-    <div class="rows is-centered">
-      <div class="row is-full-width">
-
-        <h2 class="title is-3">Distance-Attention Correlation</h2>
-
-        <figure class="paper-figure-block single-paper-figure distance-attention-figure">
-          <img
-            src="media/figures/distance_attention_correlation.png?v=1"
-            alt="Distance-attention correlation visualization"
-          />
-
-          <figcaption class="mask-figure-caption distance-attention-caption">
-            <div class="caption-label">Analysis</div>
-
-            <div class="caption-body">
-              <p>
-                <strong>Distance-attention correlation.</strong>
-                The left panel shows the spatial distance from the selected query point, while the middle and right panels visualize
-                the corresponding attention values for Performer and RelFlexformer.
-              </p>
-
-              <p>
-                Compared with Performer, RelFlexformer shows a stronger positive relationship between spatial distance structure and attention assignment,
-                suggesting that its RPE-modulated attention better reflects geometric organization around the query point.
-              </p>
-            </div>
-          </figcaption>
-        </figure>
-      </div>
-    </div>
-  </div>
-</section>
-
-  
-  
 <section class="section performance-section">
   <div class="container is-max-widescreen">
-
-    <div class="deployment-performance">
-      <h2 class="title is-3 performance-section-title">Performance</h2>
-
-        <article class="performance-card">
-          <h4>Object Classification</h4>
-        
-          <div class="performance-table-wrap">
-            <table class="performance-table relflex-table classification-table">
-              <thead>
-                <tr>
-                  <th rowspan="2">Attention</th>
-                  <th class="dataset-head group-end" colspan="1">ModelNet40</th>
-                  <th class="dataset-head last-dataset-head" colspan="2">ScanObjectNN</th>
-                </tr>
-                <tr>
-                  <th class="group-end">OA</th>
-        
-                  <th>mAcc</th>
-                  <th>OA</th>
-                </tr>
-              </thead>
-        
-              <tbody>
-                <tr class="baseline-row">
-                  <th>Transformer</th>
-                  <td class="group-end">93.2</td>
-        
-                  <td>80.5</td>
-                  <td>84.0</td>
-                </tr>
-        
-                <tr>
-                  <th>Performer</th>
-                  <td class="group-end">92.34</td>
-        
-                  <td>80.47</td>
-                  <td>83.16</td>
-                </tr>
-        
-                <tr>
-                  <th class="submethod">+ PointRoPE</th>
-                  <td class="group-end">92.48</td>
-        
-                  <td>80.36</td>
-                  <td>83.88</td>
-                </tr>
-        
-                <tr class="performance-best-row">
-                  <th>RelFlexformer (ours)</th>
-                  <td class="group-end"><strong>92.94</strong></td>
-        
-                  <td><strong>81.56</strong></td>
-                  <td><strong>84.45</strong></td>
-                </tr>
-        
-                <tr class="performance-best-row">
-                  <th class="submethod">+ PointRoPE</th>
-                  <td class="group-end">92.55</td>
-        
-                  <td>81.49</td>
-                  <td>84.26</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </article>
-      
-        <article class="performance-card">
-          <h4>Semantic Segmentation</h4>
-      
-          <div class="performance-table-wrap">
-            <table class="performance-table relflex-table">
-              <thead>
-                <tr>
-                  <th rowspan="2">Attention</th>
-                  <th class="dataset-head" colspan="3">ScanNet Val</th>
-                  <th class="dataset-head" colspan="3">ScanNet200 Val</th>
-                  <th class="dataset-head" colspan="3">ScanNet++ Val</th>
-                  <th class="dataset-head last-dataset-head" colspan="3">nuScenes Val</th>
-                </tr>
-                <tr>
-                  <th>mIoU</th>
-                  <th>mAcc</th>
-                  <th class="group-end">allAcc</th>
-                
-                  <th>mIoU</th>
-                  <th>mAcc</th>
-                  <th class="group-end">allAcc</th>
-                
-                  <th>mIoU</th>
-                  <th>mAcc</th>
-                  <th class="group-end">allAcc</th>
-                
-                  <th>mIoU</th>
-                  <th>mAcc</th>
-                  <th>allAcc</th>
-                </tr>
-              </thead>
-      
-              <tbody>
-                <tr class="baseline-row">
-                  <th>Transformer</th>
-                  <td>77.6</td>
-                  <td>85.0</td>
-                  <td class="group-end">92.0</td>
-                
-                  <td>35.3</td>
-                  <td>46.0</td>
-                  <td class="group-end">83.4</td>
-                
-                  <td>48.2</td>
-                  <td>61.6</td>
-                  <td class="group-end">87.0</td>
-                
-                  <td>80.4</td>
-                  <td>87.2</td>
-                  <td>94.7</td>
-                </tr>
-      
-                <tr>
-                  <th>Performer</th>
-                  <td>74.8</td>
-                  <td>83.8</td>
-                  <td class="group-end">91.0</td>
-      
-                  <td>28.2</td>
-                  <td>39.6</td>
-                  <td class="group-end">80.2</td>
-      
-                  <td>48.1</td>
-                  <td><strong>62.5</strong></td>
-                  <td class="group-end"><strong>87.2</strong></td>
-      
-                  <td>72.0</td>
-                  <td>80.2</td>
-                  <td>93.5</td>
-                </tr>
-      
-                <tr>
-                  <th class="submethod">+ PointRoPE</th>
-                  <td>74.6</td>
-                  <td>83.4</td>
-                  <td class="group-end">91.0</td>
-      
-                  <td>34.1</td>
-                  <td>44.9</td>
-                  <td class="group-end"><strong>82.9</strong></td>
-      
-                  <td>48.1</td>
-                  <td>60.9</td>
-                  <td class="group-end">86.9</td>
-      
-                  <td>80.4</td>
-                  <td>87.4</td>
-                  <td><strong>94.8</strong></td>
-                </tr>
-      
-                <tr class="performance-best-row">
-                  <th>RelFlexformer (ours)</th>
-                  <td><strong>76.8</strong></td>
-                  <td><strong>85.0</strong></td>
-                  <td class="group-end"><strong>91.9</strong></td>
-      
-                  <td>34.0</td>
-                  <td><strong>45.4</strong></td>
-                  <td class="group-end"><strong>82.9</strong></td>
-      
-                  <td>48.7</td>
-                  <td>62.2</td>
-                  <td class="group-end">86.8</td>
-      
-                  <td>80.3</td>
-                  <td><strong>87.5</strong></td>
-                  <td>94.6</td>
-                </tr>
-      
-                <tr class="performance-best-row">
-                  <th class="submethod">+ PointRoPE</th>
-                  <td>76.6</td>
-                  <td>84.5</td>
-                  <td class="group-end">91.6</td>
-      
-                  <td><strong>34.9</strong></td>
-                  <td>45.2</td>
-                  <td class="group-end"><strong>82.9</strong></td>
-      
-                  <td><strong>48.8</strong></td>
-                  <td>61.7</td>
-                  <td class="group-end">86.7</td>
-      
-                  <td><strong>81.2</strong></td>
-                  <td><strong>87.5</strong></td>
-                  <td><strong>94.8</strong></td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </article>
-
-        <article class="performance-card">
-          <h4>Indoor Semantic Segmentation</h4>
-        
-          <div class="performance-table-wrap">
-            <table class="area-performance-table">
-              <thead>
-                <tr>
-                  <th>Attention</th>
-                  <th>Metric</th>
-                  <th>Area1</th>
-                  <th>Area2</th>
-                  <th>Area3</th>
-                  <th>Area4</th>
-                  <th>Area5</th>
-                  <th>Area6</th>
-                  <th>6-Fold</th>
-                </tr>
-              </thead>
-        
-              <tbody>
-                <!-- Transformer -->
-                <tr class="area-baseline-row area-block-start">
-                  <th rowspan="3">Transformer</th>
-                  <td>allAcc</td>
-                  <td>93.22</td>
-                  <td>86.26</td>
-                  <td>94.56</td>
-                  <td>90.72</td>
-                  <td>91.67</td>
-                  <td>94.98</td>
-                  <td>91.90</td>
-                </tr>
-                <tr class="area-baseline-row">
-                  <td>mAcc</td>
-                  <td>89.92</td>
-                  <td>74.44</td>
-                  <td>94.45</td>
-                  <td>81.11</td>
-                  <td>78.92</td>
-                  <td>93.55</td>
-                  <td>85.31</td>
-                </tr>
-                <tr class="area-baseline-row">
-                  <td>mIoU</td>
-                  <td>83.01</td>
-                  <td>63.42</td>
-                  <td>86.66</td>
-                  <td>71.34</td>
-                  <td>73.43</td>
-                  <td>87.31</td>
-                  <td>77.70</td>
-                </tr>
-        
-                <!-- Performer -->
-                <tr class="area-block-start">
-                  <th rowspan="3">Performer</th>
-                  <td>allAcc</td>
-                  <td>92.35</td>
-                  <td><strong>88.53</strong></td>
-                  <td>94.47</td>
-                  <td>85.96</td>
-                  <td>90.86</td>
-                  <td>91.20</td>
-                  <td>90.56</td>
-                </tr>
-                <tr>
-                  <td>mAcc</td>
-                  <td>88.56</td>
-                  <td>76.97</td>
-                  <td><strong>93.69</strong></td>
-                  <td>78.31</td>
-                  <td>75.63</td>
-                  <td>85.77</td>
-                  <td>83.16</td>
-                </tr>
-                <tr>
-                  <td>mIoU</td>
-                  <td>80.74</td>
-                  <td>62.60</td>
-                  <td>86.02</td>
-                  <td>62.60</td>
-                  <td>69.75</td>
-                  <td>77.35</td>
-                  <td>73.18</td>
-                </tr>
-        
-                <!-- Performer + PointRoPE -->
-                <tr class="area-block-start">
-                  <th rowspan="3" class="submethod">+ PointRoPE</th>
-                  <td>allAcc</td>
-                  <td>93.00</td>
-                  <td>86.88</td>
-                  <td>94.25</td>
-                  <td>88.29</td>
-                  <td>91.17</td>
-                  <td>94.73</td>
-                  <td>91.39</td>
-                </tr>
-                <tr>
-                  <td>mAcc</td>
-                  <td>90.06</td>
-                  <td>76.62</td>
-                  <td>93.63</td>
-                  <td>76.14</td>
-                  <td><strong>77.55</strong></td>
-                  <td>93.26</td>
-                  <td>84.54</td>
-                </tr>
-                <tr>
-                  <td>mIoU</td>
-                  <td>82.31</td>
-                  <td>61.47</td>
-                  <td>86.21</td>
-                  <td>67.38</td>
-                  <td>71.75</td>
-                  <td>86.59</td>
-                  <td>75.95</td>
-                </tr>
-        
-                <!-- RelFlexformer -->
-                <tr class="area-block-start performance-best-row">
-                  <th rowspan="3">RelFlexformer (ours)</th>
-                  <td>allAcc</td>
-                  <td>92.96</td>
-                  <td>88.07</td>
-                  <td>94.51</td>
-                  <td>88.36</td>
-                  <td>91.14</td>
-                  <td>94.65</td>
-                  <td><strong>91.62</strong></td>
-                </tr>
-                <tr class="performance-best-row">
-                  <td>mAcc</td>
-                  <td><strong>90.59</strong></td>
-                  <td><strong>77.33</strong></td>
-                  <td>93.00</td>
-                  <td>80.92</td>
-                  <td>76.79</td>
-                  <td><strong>93.33</strong></td>
-                  <td><strong>85.33</strong></td>
-                </tr>
-                <tr class="performance-best-row">
-                  <td>mIoU</td>
-                  <td>81.93</td>
-                  <td><strong>63.21</strong></td>
-                  <td>86.20</td>
-                  <td><strong>68.28</strong></td>
-                  <td>71.01</td>
-                  <td><strong>86.88</strong></td>
-                  <td>76.25</td>
-                </tr>
-        
-                <!-- RelFlexformer + PointRoPE -->
-                <tr class="area-block-start performance-best-row">
-                  <th rowspan="3" class="submethod">+ PointRoPE</th>
-                  <td>allAcc</td>
-                  <td><strong>93.32</strong></td>
-                  <td>85.84</td>
-                  <td><strong>94.57</strong></td>
-                  <td><strong>88.89</strong></td>
-                  <td><strong>91.50</strong></td>
-                  <td><strong>94.74</strong></td>
-                  <td>91.48</td>
-                </tr>
-                <tr class="performance-best-row">
-                  <td>mAcc</td>
-                  <td>90.43</td>
-                  <td>73.82</td>
-                  <td>93.64</td>
-                  <td><strong>81.59</strong></td>
-                  <td>77.44</td>
-                  <td>93.14</td>
-                  <td>85.01</td>
-                </tr>
-                <tr class="performance-best-row">
-                  <td>mIoU</td>
-                  <td><strong>82.79</strong></td>
-                  <td>62.87</td>
-                  <td><strong>86.75</strong></td>
-                  <td>68.12</td>
-                  <td><strong>72.14</strong></td>
-                  <td>86.79</td>
-                  <td><strong>76.58</strong></td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </article>
-
-        <article class="performance-card">
-          <h4>RGB-D Semantic Segmentation</h4>
-        
-          <div class="performance-table-wrap">
-            <table class="rgbd-performance-table">
-              <thead>
-                <tr>
-                  <th>Attention</th>
-                  <th>Complexity</th>
-                  <th>NYU v2</th>
-                  <th>SUN RGB-D</th>
-                </tr>
-              </thead>
-        
-              <tbody>
-                <tr class="rgbd-baseline-row">
-                  <th>Softmax</th>
-                  <td>\(O(n^2)\)</td>
-                  <td>55.6</td>
-                  <td>51.2</td>
-                </tr>
-        
-                <tr>
-                  <th>Performer</th>
-                  <td>\(O(n)\)</td>
-                  <td>54.44</td>
-                  <td>48.49</td>
-                </tr>
-        
-                <tr>
-                  <th>Performer + STRING</th>
-                  <td>\(O(n \log n)\)</td>
-                  <td>54.96</td>
-                  <td>50.87</td>
-                </tr>
-        
-                <tr class="performance-best-row">
-                  <th>RelFlexFormer (ours)</th>
-                  <td>\(O(n \log n)\)</td>
-                  <td><strong>55.32</strong></td>
-                  <td><strong>51.04</strong></td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </article>
+<div class="deployment-performance">
+  <h2 class="title is-3 performance-section-title">Performance</h2>
+  <p class="performance-summary">
+    <strong>
+      RelFlexformer matches or improves strong Transformer and Performer baselines across a broad set of 3D benchmarks
+      while operating in \(O(n \log n)\) time.
+    </strong>
+  </p>
+  <article class="performance-card">
+    <h4>Object Classification</h4>
+    <div class="performance-table-wrap">
+      <table class="performance-table relflex-table classification-table">
+        <thead>
+          <tr>
+            <th rowspan="2">Attention</th>
+            <th class="dataset-head group-end" colspan="1">ModelNet40</th>
+            <th class="dataset-head last-dataset-head" colspan="2">ScanObjectNN</th>
+          </tr>
+          <tr>
+            <th class="group-end">OA</th>
+            <th>mAcc</th>
+            <th>OA</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="baseline-row">
+            <th>Transformer</th>
+            <td class="group-end">93.2</td>
+            <td>80.5</td>
+            <td>84.0</td>
+          </tr>
+          <tr>
+            <th>Performer</th>
+            <td class="group-end">92.34</td>
+            <td>80.47</td>
+            <td>83.16</td>
+          </tr>
+          <tr>
+            <th class="submethod">+ PointRoPE</th>
+            <td class="group-end">92.48</td>
+            <td>80.36</td>
+            <td>83.88</td>
+          </tr>
+          <tr class="performance-best-row">
+            <th>RelFlexformer (ours)</th>
+            <td class="group-end"><strong>92.94</strong></td>
+            <td><strong>81.56</strong></td>
+            <td><strong>84.45</strong></td>
+          </tr>
+          <tr class="performance-best-row">
+            <th class="submethod">+ PointRoPE</th>
+            <td class="group-end">92.55</td>
+            <td>81.49</td>
+            <td>84.26</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
-
+  </article>
+  <article class="performance-card">
+    <h4>Semantic Segmentation</h4>
+    <div class="performance-table-wrap">
+      <table class="performance-table relflex-table">
+        <thead>
+          <tr>
+            <th rowspan="2">Attention</th>
+            <th class="dataset-head" colspan="3">ScanNet Val</th>
+            <th class="dataset-head" colspan="3">ScanNet200 Val</th>
+            <th class="dataset-head" colspan="3">ScanNet++ Val</th>
+            <th class="dataset-head last-dataset-head" colspan="3">nuScenes Val</th>
+          </tr>
+          <tr>
+            <th>mIoU</th>
+            <th>mAcc</th>
+            <th class="group-end">allAcc</th>
+            <th>mIoU</th>
+            <th>mAcc</th>
+            <th class="group-end">allAcc</th>
+            <th>mIoU</th>
+            <th>mAcc</th>
+            <th class="group-end">allAcc</th>
+            <th>mIoU</th>
+            <th>mAcc</th>
+            <th>allAcc</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="baseline-row">
+            <th>Transformer</th>
+            <td>77.6</td>
+            <td>85.0</td>
+            <td class="group-end">92.0</td>
+            <td>35.3</td>
+            <td>46.0</td>
+            <td class="group-end">83.4</td>
+            <td>48.2</td>
+            <td>61.6</td>
+            <td class="group-end">87.0</td>
+            <td>80.4</td>
+            <td>87.2</td>
+            <td>94.7</td>
+          </tr>
+          <tr>
+            <th>Performer</th>
+            <td>74.8</td>
+            <td>83.8</td>
+            <td class="group-end">91.0</td>
+            <td>28.2</td>
+            <td>39.6</td>
+            <td class="group-end">80.2</td>
+            <td>48.1</td>
+            <td><strong>62.5</strong></td>
+            <td class="group-end"><strong>87.2</strong></td>
+            <td>72.0</td>
+            <td>80.2</td>
+            <td>93.5</td>
+          </tr>
+          <tr>
+            <th class="submethod">+ PointRoPE</th>
+            <td>74.6</td>
+            <td>83.4</td>
+            <td class="group-end">91.0</td>
+            <td>34.1</td>
+            <td>44.9</td>
+            <td class="group-end"><strong>82.9</strong></td>
+            <td>48.1</td>
+            <td>60.9</td>
+            <td class="group-end">86.9</td>
+            <td>80.4</td>
+            <td>87.4</td>
+            <td><strong>94.8</strong></td>
+          </tr>
+          <tr class="performance-best-row">
+            <th>RelFlexformer (ours)</th>
+            <td><strong>76.8</strong></td>
+            <td><strong>85.0</strong></td>
+            <td class="group-end"><strong>91.9</strong></td>
+            <td>34.0</td>
+            <td><strong>45.4</strong></td>
+            <td class="group-end"><strong>82.9</strong></td>
+            <td>48.7</td>
+            <td>62.2</td>
+            <td class="group-end">86.8</td>
+            <td>80.3</td>
+            <td><strong>87.5</strong></td>
+            <td>94.6</td>
+          </tr>
+          <tr class="performance-best-row">
+            <th class="submethod">+ PointRoPE</th>
+            <td>76.6</td>
+            <td>84.5</td>
+            <td class="group-end">91.6</td>
+            <td><strong>34.9</strong></td>
+            <td>45.2</td>
+            <td class="group-end"><strong>82.9</strong></td>
+            <td><strong>48.8</strong></td>
+            <td>61.7</td>
+            <td class="group-end">86.7</td>
+            <td><strong>81.2</strong></td>
+            <td><strong>87.5</strong></td>
+            <td><strong>94.8</strong></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </article>
+  <article class="performance-card">
+    <h4>Indoor Semantic Segmentation</h4>
+    <div class="performance-table-wrap">
+      <table class="area-performance-table">
+        <thead>
+          <tr>
+            <th>Attention</th>
+            <th>Metric</th>
+            <th>Area1</th>
+            <th>Area2</th>
+            <th>Area3</th>
+            <th>Area4</th>
+            <th>Area5</th>
+            <th>Area6</th>
+            <th>6-Fold</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="area-baseline-row area-block-start">
+            <th rowspan="3">Transformer</th>
+            <td>allAcc</td>
+            <td>93.22</td>
+            <td>86.26</td>
+            <td>94.56</td>
+            <td>90.72</td>
+            <td>91.67</td>
+            <td>94.98</td>
+            <td>91.90</td>
+          </tr>
+          <tr class="area-baseline-row">
+            <td>mAcc</td>
+            <td>89.92</td>
+            <td>74.44</td>
+            <td>94.45</td>
+            <td>81.11</td>
+            <td>78.92</td>
+            <td>93.55</td>
+            <td>85.31</td>
+          </tr>
+          <tr class="area-baseline-row">
+            <td>mIoU</td>
+            <td>83.01</td>
+            <td>63.42</td>
+            <td>86.66</td>
+            <td>71.34</td>
+            <td>73.43</td>
+            <td>87.31</td>
+            <td>77.70</td>
+          </tr>
+          <tr class="area-block-start">
+            <th rowspan="3">Performer</th>
+            <td>allAcc</td>
+            <td>92.35</td>
+            <td><strong>88.53</strong></td>
+            <td>94.47</td>
+            <td>85.96</td>
+            <td>90.86</td>
+            <td>91.20</td>
+            <td>90.56</td>
+          </tr>
+          <tr>
+            <td>mAcc</td>
+            <td>88.56</td>
+            <td>76.97</td>
+            <td><strong>93.69</strong></td>
+            <td>78.31</td>
+            <td>75.63</td>
+            <td>85.77</td>
+            <td>83.16</td>
+          </tr>
+          <tr>
+            <td>mIoU</td>
+            <td>80.74</td>
+            <td>62.60</td>
+            <td>86.02</td>
+            <td>62.60</td>
+            <td>69.75</td>
+            <td>77.35</td>
+            <td>73.18</td>
+          </tr>
+          <tr class="area-block-start">
+            <th rowspan="3" class="submethod">+ PointRoPE</th>
+            <td>allAcc</td>
+            <td>93.00</td>
+            <td>86.88</td>
+            <td>94.25</td>
+            <td>88.29</td>
+            <td>91.17</td>
+            <td>94.73</td>
+            <td>91.39</td>
+          </tr>
+          <tr>
+            <td>mAcc</td>
+            <td>90.06</td>
+            <td>76.62</td>
+            <td>93.63</td>
+            <td>76.14</td>
+            <td><strong>77.55</strong></td>
+            <td>93.26</td>
+            <td>84.54</td>
+          </tr>
+          <tr>
+            <td>mIoU</td>
+            <td>82.31</td>
+            <td>61.47</td>
+            <td>86.21</td>
+            <td>67.38</td>
+            <td>71.75</td>
+            <td>86.59</td>
+            <td>75.95</td>
+          </tr>
+          <tr class="area-block-start performance-best-row">
+            <th rowspan="3">RelFlexformer (ours)</th>
+            <td>allAcc</td>
+            <td>92.96</td>
+            <td>88.07</td>
+            <td>94.51</td>
+            <td>88.36</td>
+            <td>91.14</td>
+            <td>94.65</td>
+            <td><strong>91.62</strong></td>
+          </tr>
+          <tr class="performance-best-row">
+            <td>mAcc</td>
+            <td><strong>90.59</strong></td>
+            <td><strong>77.33</strong></td>
+            <td>93.00</td>
+            <td>80.92</td>
+            <td>76.79</td>
+            <td><strong>93.33</strong></td>
+            <td><strong>85.33</strong></td>
+          </tr>
+          <tr class="performance-best-row">
+            <td>mIoU</td>
+            <td>81.93</td>
+            <td><strong>63.21</strong></td>
+            <td>86.20</td>
+            <td><strong>68.28</strong></td>
+            <td>71.01</td>
+            <td><strong>86.88</strong></td>
+            <td>76.25</td>
+          </tr>
+          <tr class="area-block-start performance-best-row">
+            <th rowspan="3" class="submethod">+ PointRoPE</th>
+            <td>allAcc</td>
+            <td><strong>93.32</strong></td>
+            <td>85.84</td>
+            <td><strong>94.57</strong></td>
+            <td><strong>88.89</strong></td>
+            <td><strong>91.50</strong></td>
+            <td><strong>94.74</strong></td>
+            <td>91.48</td>
+          </tr>
+          <tr class="performance-best-row">
+            <td>mAcc</td>
+            <td>90.43</td>
+            <td>73.82</td>
+            <td>93.64</td>
+            <td><strong>81.59</strong></td>
+            <td>77.44</td>
+            <td>93.14</td>
+            <td>85.01</td>
+          </tr>
+          <tr class="performance-best-row">
+            <td>mIoU</td>
+            <td><strong>82.79</strong></td>
+            <td>62.87</td>
+            <td><strong>86.75</strong></td>
+            <td>68.12</td>
+            <td><strong>72.14</strong></td>
+            <td>86.79</td>
+            <td><strong>76.58</strong></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </article>
+  <article class="performance-card">
+    <h4>RGB-D Semantic Segmentation</h4>
+    <div class="performance-table-wrap">
+      <table class="rgbd-performance-table">
+        <thead>
+          <tr>
+            <th>Attention</th>
+            <th>Complexity</th>
+            <th>NYU v2</th>
+            <th>SUN RGB-D</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="rgbd-baseline-row">
+            <th>Softmax</th>
+            <td>\(O(n^2)\)</td>
+            <td>55.6</td>
+            <td>51.2</td>
+          </tr>
+          <tr>
+            <th>Performer</th>
+            <td>\(O(n)\)</td>
+            <td>54.44</td>
+            <td>48.49</td>
+          </tr>
+          <tr>
+            <th>Performer + STRING</th>
+            <td>\(O(n \log n)\)</td>
+            <td>54.96</td>
+            <td>50.87</td>
+          </tr>
+          <tr class="performance-best-row">
+            <th>RelFlexformer (ours)</th>
+            <td>\(O(n \log n)\)</td>
+            <td><strong>55.32</strong></td>
+            <td><strong>51.04</strong></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </article>
+</div>
   </div>
 </section>
-
-
 <section class="citation-section">
   <div class="container is-max-desktop">
-    <h2 class="title is-3">Citation</h2>
-    <div class="citation-card">
+<h2 class="title is-3">Citation</h2>
+<div class="citation-card">
 <pre><code>@article{kim2026relflexformer,
   title={RelFlexformer: Efficient Attention 3D-Transformers for Integrable Relative Positional Encodings},
   author={Kim, Byeongchan and Sehanobish, Arijit and Dubey, Avinava and Oh, Min-hwan and Choromanski, Krzysztof},
   journal={arXiv preprint arXiv:2605.10706},
   year={2026}
 }</code></pre>
-    </div>
+</div>
   </div>
 </section>
-
-
 </body>
 </html>
