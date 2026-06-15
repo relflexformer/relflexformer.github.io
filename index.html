@@ -32,6 +32,8 @@
   <script src="./static/js/bulma-slider.min.js"></script>
   <script src="./static/js/index.js?v=14"></script>
 </head>
+
+  
 <body>
 <section class="hero">
   <div class="hero-body">
@@ -78,15 +80,28 @@
 </div>
   </div>
 </section>
+
+
+<section class="section tldr-section">
+  <div class="container is-max-desktop">
+    <div class="tldr-box hero-tldr-box">
+      <strong>TL;DR.</strong>
+      RelFlexformer injects flexible 3D relative positional encodings into efficient attention using
+      NU-FFT-based FastMult, enabling geometry-aware attention with \(O(L \log L)\) complexity.
+    </div>
+  </div>
+</section>
+  
+  
 <section class="section hook-section">
   <div class="container is-max-widescreen">
 <div class="columns is-centered">
   <div class="column is-full">
-    <h2 class="title is-3 has-text-centered">Geometry-Aware Attention at a Glance</h2>
+    <h2 class="title is-3 has-text-centered">Spatially Sharp Attention for 3D Data</h2>
     <p class="hook-summary">
       <strong>
-        RelFlexformer turns efficient attention from a diffuse approximation into spatially structured,
-        geometry-aware attention for 3D data.
+        RelFlexformer preserves the efficiency of linear attention while producing more localized,
+        geometry-aware attention patterns in 3D scenes.
       </strong>
     </p>
     <div class="overview-click-note">
@@ -157,15 +172,12 @@
 </div>
   </div>
 </section>
+
+  
 <section class="hero teaser abstract-section">
   <div class="container is-max-widescreen">
 <div class="columns is-centered has-text-centered">
   <div class="column is-four-fifths">
-    <div class="tldr-box">
-      <strong>TL;DR.</strong>
-      RelFlexformer injects flexible 3D relative positional encodings into efficient attention using
-      NU-FFT-based FastMult, enabling geometry-aware attention with \(O(L \log L)\) complexity.
-    </div>
     <h2 class="title is-3">Abstract</h2>
     <div class="content has-text-justified">
       <p>
