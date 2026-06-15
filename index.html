@@ -87,7 +87,7 @@
     <div class="tldr-box hero-tldr-box">
       <span class="tldr-label">TL;DR</span>
       <span class="tldr-text">
-        RelFlexformer makes efficient 3D attention spatially aware by injecting flexible relative positional encodings through NU-FFT-based FastMult, achieving geometry-aware attention in \(O(L \log L)\) time.
+        RelFlexformer makes efficient 3D attention geometry-aware by injecting flexible relative positional encodings through NU-FFT-based FastMult, achieving spatially selective attention in \(O(L \log L)\) time.
       </span>
     </div>
   </div>
@@ -124,7 +124,7 @@
   <div class="container is-max-widescreen">
 <div class="columns is-centered">
   <div class="column is-full">
-    <h2 class="title is-3 has-text-centered">Spatially Sharp Attention for 3D Data</h2>
+    <h2 class="title is-3 has-text-centered">Dense Transformer vs. Performer vs. RelFlexformer (Ours)</h2>
     <p class="cartoon-overview-summary">
       <strong>
         RelFlexformer preserves the efficiency of linear attention while producing more localized,
@@ -202,8 +202,82 @@
 
 
 
+<section class="section fastmult-motivation-section">
+  <div class="container is-max-widescreen">
+
+    <h2 class="title is-3 has-text-centered">
+      Why Do We Need FastMult?
+    </h2>
+
+    <p class="fastmult-motivation-summary">
+      <strong>
+        Relative positional encodings can be viewed as attention masks that inject useful spatial inductive bias.
+        However, explicitly applying a flexible 3D RPE mask requires a dense \(L \times L\) matrix,
+        which breaks the efficiency advantage of Performer-style attention.
+      </strong>
+    </p>
+
+    <div class="fastmult-motivation-layout">
+
+      <figure class="block-toeplitz-motivation-figure">
+        <img
+          src="media/figures/block_toeplitz_masking_motivation.png?v=1"
+          alt="Masking as a powerful inductive bias in Transformers"
+        />
+        <figcaption>
+          Masking and relative positional encodings provide useful inductive biases for Transformers.
+          The key challenge is how to keep such masks scalable when the token locations are irregular and non-uniform.
+        </figcaption>
+      </figure>
+
+      <div class="fastmult-motivation-cards">
+
+        <div class="fastmult-motivation-card">
+          <div class="motivation-card-label">Motivation</div>
+          <h3>RPE acts like a geometric mask</h3>
+          <p>
+            In 3D point clouds and scenes, token positions carry geometric meaning.
+            A flexible RPE mask
+            \(\mathbf{M}_{ij}=f(\mathbf{r}_i-\mathbf{r}_j)\)
+            biases attention toward spatially relevant token interactions.
+          </p>
+        </div>
+
+        <div class="fastmult-motivation-card">
+          <div class="motivation-card-label">Bottleneck</div>
+          <h3>Dense masks are quadratic</h3>
+          <p>
+            Naively constructing the full RPE mask requires an
+            \(L \times L\) matrix. This introduces \(O(L^2)\) memory and computation,
+            eliminating the scalability benefit of efficient attention.
+          </p>
+        </div>
+
+        <div class="fastmult-motivation-card">
+          <div class="motivation-card-label">Solution</div>
+          <h3>FastMult keeps the mask implicit</h3>
+          <p>
+            RelFlexformer never materializes the dense mask. Instead, it computes
+            the masked product \(\mathbf{M}\mathbf{u}\) directly using
+            NU-FFT-based FastMult, enabling RPE-modulated attention in
+            \(O(L \log L)\) time.
+          </p>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="fastmult-key-message">
+      <strong>Key idea:</strong>
+      keep the flexible 3D RPE mask as an inductive bias, but apply it through fast
+      matrix-vector multiplication instead of explicitly constructing the full \(L \times L\) matrix.
+    </div>
+
+  </div>
+</section>
 
 
+  
   
 <section class="hero teaser abstract-section">
   <div class="container is-max-widescreen">
