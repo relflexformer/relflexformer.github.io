@@ -2845,3 +2845,73 @@ body {
   max-width: 1500px !important;
   margin-top: 0.8rem !important;
 }
+
+
+/* ============================================================
+   Cartoon overview section
+   ============================================================ */
+
+.cartoon-overview-section {
+  padding-top: 1.5rem !important;
+  padding-bottom: 2.2rem !important;
+}
+
+.cartoon-overview-section .container.is-max-widescreen {
+  max-width: 1450px !important;
+  width: 96vw !important;
+}
+
+.cartoon-overview-section .title {
+  color: #111;
+  font-family: 'Google Sans', 'Noto Sans', sans-serif;
+  font-weight: 800;
+  margin-bottom: 0.55rem !important;
+}
+
+.cartoon-overview-summary {
+  color: #222;
+  font-family: 'Google Sans', 'Noto Sans', sans-serif;
+  font-size: 1.12rem;
+  line-height: 1.45;
+  margin: 0 auto 1.15rem;
+  max-width: 1120px;
+  text-align: center;
+}
+
+.cartoon-overview-figure {
+  margin: 0 auto;
+  max-width: 1450px;
+  text-align: center;
+}
+
+.cartoon-overview-figure img {
+  background: #fff;
+  border: 1px solid #d6e3f5;
+  border-radius: 14px;
+  box-shadow: 0 14px 34px rgba(31, 76, 124, 0.10);
+  display: block;
+  height: auto;
+  width: 100%;
+}
+
+.cartoon-overview-figure figcaption {
+  color: #444;
+  font-family: 'Google Sans', 'Noto Sans', sans-serif;
+  font-size: 0.98rem;
+  line-height: 1.45;
+  margin: 0.8rem auto 0;
+  max-width: 1100px;
+  text-align: center;
+}
+
+@media screen and (max-width: 768px) {
+  .cartoon-overview-summary {
+    font-size: 1rem;
+    text-align: left;
+  }
+
+  .cartoon-overview-figure figcaption {
+    font-size: 0.9rem;
+    text-align: left;
+  }
+}
