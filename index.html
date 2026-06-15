@@ -92,14 +92,40 @@
     </div>
   </div>
 </section>
-  
-  
+
+
+<section class="section cartoon-overview-section">
+  <div class="container is-max-widescreen">
+
+    <h2 class="title is-3 has-text-centered">
+      Overview: Flexible 3D RPE with Efficient Attention
+    </h2>
+
+    <p class="cartoon-overview-summary">
+      <strong>
+        RelFlexformer keeps flexible 3D relative positional encodings compatible with
+        Performer-style efficient attention by avoiding the explicit \(L \times L\) mask
+        and applying it implicitly through NU-FFT-based FastMult.
+      </strong>
+    </p>
+
+    <figure class="paper-figure-block cartoon-overview-figure">
+      <img
+        src="media/figures/relflexformer_cartoon.png?v=1"
+        alt="RelFlexformer cartoon overview: keeping 3D RPE compatible with efficient attention"
+      />
+    </figure>
+
+  </div>
+</section>
+
+
 <section class="section hook-section">
   <div class="container is-max-widescreen">
 <div class="columns is-centered">
   <div class="column is-full">
     <h2 class="title is-3 has-text-centered">Spatially Sharp Attention for 3D Data</h2>
-    <p class="hook-summary">
+    <p class="cartoon-overview-summary">
       <strong>
         RelFlexformer preserves the efficiency of linear attention while producing more localized,
         geometry-aware attention patterns in 3D scenes.
@@ -176,36 +202,7 @@
 
 
 
-<section class="section cartoon-overview-section">
-  <div class="container is-max-widescreen">
 
-    <h2 class="title is-3 has-text-centered">
-      Keeping Geometry Without Losing Efficiency
-    </h2>
-
-    <p class="cartoon-overview-summary">
-      <strong>
-        RelFlexformer keeps flexible 3D relative positional encodings compatible with
-        Performer-style efficient attention by avoiding the explicit \(L \times L\) mask
-        and applying it implicitly through NU-FFT-based FastMult.
-      </strong>
-    </p>
-
-    <figure class="paper-figure-block cartoon-overview-figure">
-      <img
-        src="media/figures/relflexformer_cartoon.png?v=1"
-        alt="RelFlexformer cartoon overview: keeping 3D RPE compatible with efficient attention"
-      />
-      <figcaption>
-        Naively inserting a flexible RPE mask requires building a dense \(L \times L\) matrix,
-        which breaks the efficiency advantage of Performer-style attention. RelFlexformer instead
-        computes the action of the RPE mask through FastMult, preserving geometry while maintaining
-        \(O(L \log L)\) scaling.
-      </figcaption>
-    </figure>
-
-  </div>
-</section>
 
   
 <section class="hero teaser abstract-section">
