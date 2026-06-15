@@ -2653,3 +2653,56 @@ body {
   font-size: 1.35rem;
   margin-bottom: 1.1rem;
 }
+
+/* ============================================================
+   Attention heatmap: 1 x 4 wide layout
+   ============================================================ */
+
+.hook-section .container.is-max-widescreen {
+  max-width: 1500px !important;
+  width: 96vw !important;
+}
+
+.hook-section .attention-click-grid {
+  display: grid !important;
+  grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+  gap: 0.65rem !important;
+  align-items: stretch !important;
+}
+
+.hook-section .attention-panel {
+  padding: 0.28rem !important;
+  border-radius: 6px !important;
+}
+
+.hook-section .attention-panel img {
+  display: block !important;
+  width: 100% !important;
+  height: auto !important;
+}
+
+.hook-section .interactive-attention-figure {
+  max-width: 1500px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+.hook-section .attention-info-panel {
+  max-width: 1200px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+/* tablet에서는 2 x 2 */
+@media screen and (max-width: 1100px) {
+  .hook-section .attention-click-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+}
+
+/* mobile에서는 1 column */
+@media screen and (max-width: 650px) {
+  .hook-section .attention-click-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
