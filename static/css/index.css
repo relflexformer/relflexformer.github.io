@@ -2800,3 +2800,48 @@ body {
   max-width: none !important;
   transform: scale(1.04);
 }
+
+
+
+/* ============================================================
+   Fix attention hook alignment
+   ============================================================ */
+
+/* Make text, heatmap grid, and info box share the same visual width */
+.hook-section .interactive-attention-figure,
+.hook-section .attention-info-panel {
+  max-width: 1500px !important;
+  width: 100% !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+/* Top-align images inside each panel instead of vertically centering them */
+.hook-section .attention-panel {
+  display: block !important;
+  align-items: initial !important;
+  justify-content: initial !important;
+  padding: 0.28rem !important;
+}
+
+/* Make each image start from the top of its card */
+.hook-section .attention-panel img {
+  display: block !important;
+  width: 100% !important;
+  height: auto !important;
+  margin: 0 !important;
+  object-fit: contain !important;
+}
+
+/* Remove the input-only enlargement for now; it makes alignment worse */
+.hook-section .attention-panel-input img {
+  width: 100% !important;
+  max-width: 100% !important;
+  transform: none !important;
+}
+
+/* Make the bottom explanation box match the heatmap width */
+.hook-section .attention-info-panel {
+  max-width: 1500px !important;
+  margin-top: 0.8rem !important;
+}
