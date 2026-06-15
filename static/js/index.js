@@ -273,3 +273,28 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+  const setupClickablePanels = (panelSelector, infoSelector) => {
+    const panels = Array.from(document.querySelectorAll(panelSelector));
+    const infoPanel = document.querySelector(infoSelector);
+
+    if (!panels.length || !infoPanel) return;
+
+    const titleEl = infoPanel.querySelector("h3");
+    const descEl = infoPanel.querySelector("p");
+
+    panels.forEach((panel) => {
+      panel.addEventListener("click", () => {
+        panels.forEach((p) => p.classList.remove("is-active"));
+        panel.classList.add("is-active");
+
+        if (titleEl) titleEl.textContent = panel.dataset.title || "";
+        if (descEl) descEl.textContent = panel.dataset.description || "";
+      });
+    });
+  };
+
+  setupClickablePanels(".attention-panel", "#attention-info-panel");
+  setupClickablePanels(".fastmult-panel", "#fastmult-info-panel");
+});
