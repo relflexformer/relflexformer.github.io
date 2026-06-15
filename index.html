@@ -278,8 +278,7 @@
 
 
   
-  
-<section class="hero teaser abstract-section">
+<!-- <section class="hero teaser abstract-section">
   <div class="container is-max-widescreen">
 <div class="columns is-centered has-text-centered">
   <div class="column is-four-fifths">
@@ -292,44 +291,10 @@
   </div>
 </div>
   </div>
-</section>
-<section class="section motivation-section">
-  <div class="container is-max-widescreen">
-<h2 class="title is-3">Why FastMult?</h2>
-<p class="motivation-lead">
-  Dense attention can model rich spatial interactions, but it is expensive. Efficient attention is scalable,
-  but can lose sharp spatial structure. RelFlexformer aims to get both: geometry-aware attention and scalable computation.
-</p>
-<div class="motivation-grid">
-  <div class="motivation-card">
-    <h3>3D RPE is a useful inductive bias</h3>
-    <p>
-      In point clouds and 3D scenes, token positions carry geometric meaning.
-      A spatial modulation function \(f(\mathbf{r}_i - \mathbf{r}_j)\) can bias attention toward geometrically relevant interactions.
-    </p>
-  </div>
-  <div class="motivation-card">
-    <h3>Explicit RPE masks are quadratic</h3>
-    <p>
-      Directly forming the full mask matrix
-      \(\mathbf{M}_{ij}=f(\mathbf{r}_i-\mathbf{r}_j)\)
-      requires an \(L \times L\) matrix, which becomes expensive for long 3D token sequences.
-    </p>
-  </div>
-  <div class="motivation-card">
-    <h3>Fast mask multiplication is the key</h3>
-    <p>
-      RelFlexformer avoids explicitly constructing \(\mathbf{M}\). Instead, it applies the mask implicitly through
-      NU-FFT-based FastMult, reducing the attention modulation cost to \(O(L \log L)\).
-    </p>
-  </div>
-</div>
-<div class="motivation-takeaway">
-  <strong>Key idea:</strong>
-  do not build the full \(L \times L\) RPE mask; compute its action \(\mathbf{M}\mathbf{u}\) efficiently.
-</div>
-  </div>
-</section>
+</section> -->
+
+  
+
 <section class="section algorithm-section">
   <div class="container is-max-widescreen">
 <h2 class="title is-3">NU-FFT for RPE-modulated Attention</h2>
@@ -407,6 +372,8 @@
 </div>
   </div>
 </section>
+
+  
 <section class="section">
   <div class="container is-max-widescreen">
 <div class="rows is-centered">
