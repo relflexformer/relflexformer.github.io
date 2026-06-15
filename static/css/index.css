@@ -3049,3 +3049,20 @@ body {
     text-align: left;
   }
 }
+
+
+/* ============================================================
+   Section spacing refinement
+   ============================================================ */
+
+.cartoon-overview-section {
+  padding-bottom: 2.6rem !important;
+}
+
+.cartoon-overview-figure {
+  margin-bottom: 0.8rem !important;
+}
+
+.hook-section {
+  padding-top: 1.8rem !important;
+}
