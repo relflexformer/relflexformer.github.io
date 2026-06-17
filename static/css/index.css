@@ -3112,3 +3112,34 @@ body {
   max-width: 1320px !important;
   width: 100% !important;
 }
+
+
+/* ============================================================
+   Reduce Mask Behavior Analysis figure and caption only
+   ============================================================ */
+
+.mask-behavior-figure img {
+  max-width: 980px !important;
+  width: 82% !important;
+}
+
+.mask-behavior-figure .mask-figure-caption {
+  max-width: 980px !important;
+  width: 82% !important;
+  padding: 0.75rem 0.9rem !important;
+  gap: 0.75rem !important;
+  grid-template-columns: 6rem 1fr !important;
+}
+
+.mask-behavior-figure .caption-label {
+  font-size: 0.82rem !important;
+}
+
+.mask-behavior-figure .caption-body {
+  font-size: 0.9rem !important;
+  line-height: 1.38 !important;
+}
+
+.mask-behavior-figure .caption-body p + p {
+  margin-top: 0.3rem !important;
+}
