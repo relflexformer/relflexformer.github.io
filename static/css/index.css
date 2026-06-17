@@ -3084,3 +3084,31 @@ body {
   max-width: 1320px !important;
   width: 92% !important;
 }
+
+
+/* ============================================================
+   Widen sections from Algorithm onward
+   ============================================================ */
+
+.algorithm-section .container.is-max-widescreen,
+.algorithm-section ~ .section .container.is-max-widescreen,
+.performance-section .container.is-max-widescreen {
+  max-width: 1450px !important;
+  width: 96vw !important;
+}
+
+.algorithm-box {
+  max-width: 1180px !important;
+}
+
+.algorithm-intro,
+.mask-analysis-intro {
+  max-width: 1180px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+.single-paper-figure img {
+  max-width: 1320px !important;
+  width: 100% !important;
+}
