@@ -3066,3 +3066,21 @@ body {
 .hook-section {
   padding-top: 1.8rem !important;
 }
+
+
+/* ============================================================
+   Final layout polish
+   ============================================================ */
+
+.algorithm-section h2.title,
+.algorithm-section ~ .section h2.title,
+.performance-section h2.title,
+.citation-section h2.title {
+  text-align: center !important;
+  width: 100%;
+}
+
+.fastmult-key-message {
+  max-width: 1320px !important;
+  width: 92% !important;
+}
